@@ -1,0 +1,20 @@
+---
+import { navigation } from '@/data/site';
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="utility-bar">
+    <div class="shell utility-inner">
+      <div class="utility-points"><span><i></i>African perspectives.</span><span><i></i>Rigorous research.</span><span><i></i>Global impact.</span></div>
+      <nav aria-label="Utility navigation"><a href="/insights">News &amp; press</a><a href="/contact">Contact</a><span>EN</span></nav>
+    </div>
+  </div>
+  <div class="shell nav-row">
+    <a class="brand" href="/" aria-label="AIAIP homepage"><span class="brand-mark">AIAIP</span><span class="brand-divider"></span><span class="brand-name">African Institute for<br />Artificial Intelligence Policy</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu><span></span><span></span><span></span><b>Menu</b></button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+      {navigation.map((item) => <a class:list={[path.startsWith(item.href) && 'active']} href={item.href}>{item.label}</a>)}
+      <a class="button button-rust nav-cta" href="/contact">Partner with us</a>
+    </nav>
+  </div>
+</header>

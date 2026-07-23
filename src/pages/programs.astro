@@ -1,0 +1,5 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'; import PageHero from '@/components/PageHero.astro'; import ContactCTA from '@/components/ContactCTA.astro';
+const programs=[['Policy Research','Evidence-based analysis for government and institutional decisions.'],['Economic Analysis','Quantifying AI’s development, productivity and employment impact.'],['Capacity Building','Equipping the next generation of African AI policy professionals.'],['Advisory Services','Independent support for responsible and inclusive AI strategies.']];
+---
+<BaseLayout title="Programs" description="Discover AIAIP's policy research, economic analysis, capacity building and advisory programs."><PageHero eyebrow="What we do" title="From evidence to institutional action." intro="Four connected programs help leaders understand change, design better policy and build durable capacity."/><section class="section shell"><div class="program-grid">{programs.map(([title,copy],i)=><article><span>0{i+1}</span><h2>{title}</h2><p>{copy}</p><a href="/contact">Discuss a collaboration →</a></article>)}</div></section><ContactCTA /></BaseLayout>
