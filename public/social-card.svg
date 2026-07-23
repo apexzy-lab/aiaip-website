@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#073e34"/><path d="M0 470 1200 190v440H0Z" fill="#0b5144"/><text x="80" y="170" fill="#d6b45e" font-family="Georgia" font-size="76">AIAIP</text><text x="80" y="280" fill="#fff" font-family="Georgia" font-size="58">Centering Africa in</text><text x="80" y="350" fill="#fff" font-family="Georgia" font-size="58">Global AI Governance</text><text x="80" y="450" fill="#d8e4df" font-family="Arial" font-size="28">African Institute for Artificial Intelligence Policy</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#252523"/>
+  <rect width="220" height="630" fill="#ffcd42"/>
+  <path d="M65 500V130h300v150c-111 0-200 90-200 200v20H65Z" fill="#252523"/>
+  <path d="M165 500c0-111 90-200 200-200v100c-55 0-100 45-100 100H165Z" fill="#ffcd42"/>
+  <text x="430" y="185" fill="#ffcd42" font-family="Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="5">AIAIP</text>
+  <text x="430" y="275" fill="#fff" font-family="Georgia, serif" font-size="56">Africa should help write</text>
+  <text x="430" y="345" fill="#fff" font-family="Georgia, serif" font-size="56">the rules of the AI age.</text>
+  <text x="430" y="445" fill="#d8d8d2" font-family="Arial, sans-serif" font-size="25">African Institute for Artificial Intelligence Policy</text>
+</svg>

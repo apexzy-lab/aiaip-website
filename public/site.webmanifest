@@ -1,0 +1,17 @@
+{
+  "name": "African Institute for Artificial Intelligence Policy",
+  "short_name": "AIAIP",
+  "description": "Independent African research and policy for artificial intelligence governance in the public interest.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffcd42",
+  "theme_color": "#073e34",
+  "icons": [
+    {
+      "src": "/brand/aiaip-mark.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

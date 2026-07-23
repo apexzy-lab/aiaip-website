@@ -7,11 +7,29 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  noindex?: boolean;
 }
 
-const { title, description, image = '/social-card.svg' } = Astro.props;
+const { title, description, image = '/social-card.svg', noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const pageTitle = title === 'Home' ? 'African Institute for Artificial Intelligence Policy' : `${title} | AIAIP`;
+const socialImage = new URL(image, Astro.site);
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ResearchOrganization',
+  name: 'African Institute for Artificial Intelligence Policy',
+  alternateName: 'AIAIP',
+  url: Astro.site?.href,
+  logo: new URL('/brand/aiaip-mark.png', Astro.site),
+  description: 'Independent African research and policy for artificial intelligence governance in the public interest.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Abuja',
+    addressRegion: 'Federal Capital Territory',
+    addressCountry: 'NG',
+  },
+  email: 'info@africanaipolicy.org',
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -20,16 +38,45 @@ const pageTitle = title === 'Home' ? 'African Institute for Artificial Intellige
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
     <meta name="theme-color" content="#073e34" />
+    <meta name="color-scheme" content="light" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/brand/aiaip-mark.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/brand/aiaip-mark.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AIAIP" />
+    <meta property="og:locale" content="en_NG" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="African Institute for Artificial Intelligence Policy" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <title>{pageTitle}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+    <!-- Google tag (gtag.js): inherited by every page using this layout. -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-R1D4KKSQCZ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R1D4KKSQCZ');
+    </script>
+
+    <!-- Microsoft Clarity: inherited by every page using this layout. -->
+    <script is:inline>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "uw5c3yedvi");
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

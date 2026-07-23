@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap');
 
 :root {
-  --ink: #171715;
+  --brand-yellow: #ffcd42;
+  --brand-charcoal: #252523;
+  --ink: var(--brand-charcoal);
   --green: #073e34;
   --green-2: #0b5144;
   --rust: #b94725;
-  --gold: #c79a3b;
+  --gold: var(--brand-yellow);
   --ivory: #f7f3e9;
   --cream: #ede4d1;
   --line: rgba(23, 23, 21, .14);
@@ -38,9 +40,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .language { border: 0; background: none; color: inherit; cursor: pointer; }
 .nav-row { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
-.brand-mark { color: var(--green); font-family: var(--serif); font-size: 2.75rem; line-height: .9; letter-spacing: -.04em; }
-.brand-divider { width: 1px; height: 42px; margin: 0 16px; background: var(--gold); }
-.brand-name { font-size: .73rem; line-height: 1.3; }
+.header-logo { display: block; width: 245px; height: auto; }
 .primary-nav { display: flex; align-items: center; gap: 34px; font-size: .87rem; font-weight: 500; }
 .primary-nav > a:not(.button) { position: relative; padding: 32px 0; }
 .primary-nav > a:not(.button)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 23px; height: 2px; background: var(--rust); transition: right .25s; }
@@ -148,7 +148,7 @@ h1 { margin: 0; font-size: clamp(3.2rem, 5vw, 5.5rem); }
 
 footer { padding: 70px 0 20px; color: rgba(255,255,255,.75); background: #061f1a; }
 .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 55px; }
-.footer-brand .brand-mark { color: #fff; }
+.footer-logo { display: block; width: min(280px, 100%); height: auto; }
 .footer-grid h3 { color: #deb865; font-size: .7rem; text-transform: uppercase; letter-spacing: .14em; }
 .footer-grid a:not(.brand) { display: block; margin: 8px 0; font-size: .82rem; }
 .footer-grid p { font-size: .78rem; }
@@ -326,8 +326,7 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
 @media (max-width: 1100px) {
   :root { --shell: min(100% - 40px, 960px); }
   .utility-points span:nth-child(2) { display: none; }
-  .brand-name { display: none; }
-  .brand-divider { display: none; }
+  .header-logo { width: 205px; }
   .primary-nav { gap: 20px; }
   .hero { grid-template-columns: 1fr 1fr; }
   .priority { grid-template-columns: 1fr; }
@@ -351,7 +350,7 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
   :root { --shell: calc(100% - 32px); }
   .utility-bar { display: none; }
   .nav-row { min-height: 70px; }
-  .brand-mark { font-size: 2.25rem; }
+  .header-logo { width: 190px; }
   .menu-button { display: grid; width: 52px; height: 48px; place-content: center; gap: 4px; border: 0; background: transparent; cursor: pointer; }
   .menu-button span { display: block; width: 24px; height: 2px; background: var(--green); }
   .menu-button b { position: absolute; width: 1px; height: 1px; overflow: hidden; }
