@@ -23,7 +23,7 @@ Connect this repository to Cloudflare Pages using:
 - Production branch: `main`
 - Build command: `npm run build`
 - Build output directory: `dist`
-- Node version: `24`
+- Node version: `22.16.0` (pinned in `.node-version` to match the current Cloudflare Pages v3 default)
 - Environment variable: `ASTRO_TELEMETRY_DISABLED=1`
 
 The project is fully static. No Cloudflare adapter is required unless server-rendered routes are added later.
