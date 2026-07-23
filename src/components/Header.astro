@@ -5,7 +5,7 @@ const path = Astro.url.pathname;
 <header class="site-header">
   <div class="utility-bar">
     <div class="shell utility-inner">
-      <div class="utility-points"><span><i></i>African perspectives.</span><span><i></i>Rigorous research.</span><span><i></i>Global impact.</span></div>
+      <div class="utility-points"><span><i></i>African agency.</span><span><i></i>Independent evidence.</span><span><i></i>Public-interest policy.</span></div>
       <nav aria-label="Utility navigation"><a href="/insights">News &amp; press</a><a href="/contact">Contact</a><span>EN</span></nav>
     </div>
   </div>
@@ -14,7 +14,7 @@ const path = Astro.url.pathname;
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu><span></span><span></span><span></span><b>Menu</b></button>
     <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
       {navigation.map((item) => <a class:list={[path.startsWith(item.href) && 'active']} href={item.href}>{item.label}</a>)}
-      <a class="button button-rust nav-cta" href="/contact">Partner with us</a>
+      <a class="button button-rust nav-cta" href="/get-involved">Work with us</a>
     </nav>
   </div>
 </header>

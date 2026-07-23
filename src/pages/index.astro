@@ -3,22 +3,154 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import AfricaMap from '@/components/AfricaMap.astro';
 import PublicationGrid from '@/components/PublicationGrid.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
-import { stats, themes } from '@/data/site';
+import { institutionalSignals, methods, themes } from '@/data/site';
 ---
-<BaseLayout title="Home" description="African-led research and evidence advancing responsible AI governance across the continent.">
-  <section class="hero">
-    <div class="hero-copy reveal"><p class="eyebrow">Independent. African-led. Evidence-driven.</p><h1>Centering Africa in<br />Global AI Governance</h1><span class="small-rule"></span><p class="hero-lede">Evidence for an AI future shaped by 1.4 billion African voices.</p><div class="button-row"><a class="button button-green" href="/research">Explore our research <span>→</span></a><a class="button button-outline" href="/contact">Partner with us <span>→</span></a></div></div>
+<BaseLayout
+  title="Home"
+  description="Independent African research, legal analysis and policy tools for accountable and inclusive AI."
+>
+  <section class="hero hero-v2">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">African Institute for Artificial Intelligence Policy</p>
+      <h1>Africa should help write the rules of the AI age.</h1>
+      <p class="hero-lede">
+        AIAIP is an independent African research institute producing evidence,
+        legal analysis and policy tools for accountable, inclusive AI.
+      </p>
+      <div class="button-row">
+        <a class="button button-green" href="/research">Explore our research <span>→</span></a>
+        <a class="button button-outline" href="/about">Why AIAIP <span>→</span></a>
+      </div>
+    </div>
     <AfricaMap />
   </section>
 
-  <section class="priority shell section">
-    <article class="flagship reveal"><div class="flagship-copy"><p class="eyebrow">Flagship report</p><h2>Africa’s $1.2 Trillion<br />AI Opportunity</h2><p>A data-driven agenda for inclusive growth, jobs and innovation across the continent.</p><a class="text-link" href="/research/state-of-ai-in-africa">Read the report <span>→</span></a></div><div class="report-book"><span>AIAIP</span><h3>Africa’s<br />$1.2 Trillion<br />AI Opportunity</h3><p>Unlocking inclusive growth in the AI era</p></div></article>
-    <div class="themes reveal"><div class="section-heading compact"><div><p class="eyebrow">Our research themes</p><h2>Evidence where it matters</h2></div></div><div class="theme-grid">{themes.map((theme) => <a class:list={['theme-card', theme.className]} href="/research"><span class="icon">◎</span><h3>{theme.title}</h3><p>{theme.summary}</p><b>Explore →</b></a>)}</div></div>
+  <section class="mission-statement">
+    <div class="shell mission-grid reveal">
+      <p class="eyebrow">Our proposition</p>
+      <p>
+        AI policy cannot be credible when a continent of 1.4 billion people is
+        treated only as a market, a data source or an afterthought.
+        <strong>Africa must be a rule-maker.</strong>
+      </p>
+    </div>
   </section>
 
-  <section class="about section"><div class="shell about-grid"><div class="about-intro reveal"><p class="eyebrow light">About AIAIP</p><h2>Research.<br />Evidence.<br /><em>Impact.</em></h2></div><div class="about-copy reveal"><p class="large-copy">We are an independent African research institution advancing responsible AI governance across the continent.</p><p>Our work turns rigorous evidence into practical policy—ensuring African knowledge, needs and ambitions influence how AI is built and governed globally.</p><a class="button button-light" href="/about">Discover our approach <span>→</span></a></div></div><div class="shell stats">{stats.map((stat) => <div class="stat reveal"><strong>{stat.value}</strong><span>{stat.label}</span></div>)}</div></section>
+  <section class="section shell" id="research-areas">
+    <div class="section-heading reveal">
+      <div>
+        <p class="eyebrow">Research areas</p>
+        <h2>The questions shaping Africa’s AI future</h2>
+      </div>
+      <p class="section-intro">
+        We study the institutions, infrastructures and power relationships that
+        determine who benefits from artificial intelligence—and who bears its risks.
+      </p>
+    </div>
+    <div class="research-area-grid">
+      {themes.map((theme) => (
+        <a class:list={['research-area-card', theme.className, 'reveal']} href="/research">
+          <span>{theme.number}</span>
+          <h3>{theme.title}</h3>
+          <p>{theme.summary}</p>
+          <ul>{theme.questions.map((question) => <li>{question}</li>)}</ul>
+          <b>Explore this area →</b>
+        </a>
+      ))}
+    </div>
+  </section>
 
-  <section class="latest shell section"><div class="section-heading reveal"><div><p class="eyebrow">Latest research</p><h2>Ideas built for action</h2></div><a class="text-link" href="/insights">View all publications <span>→</span></a></div><PublicationGrid /></section>
-  <section class="event-section section"><div class="shell event-card reveal"><div><p class="eyebrow light">Upcoming convening</p><h2>Africa AI Policy<br />Forum 2025</h2></div><div class="event-details"><span>Dates to be announced</span><span>Abuja, Nigeria</span><span>Policy leaders, researchers and builders</span></div><a class="button button-gold" href="/contact">Register interest <span>→</span></a></div></section>
+  <section class="flagship-band">
+    <div class="shell flagship-v2 reveal">
+      <div class="flagship-content">
+        <p class="eyebrow light">Flagship analysis</p>
+        <h2>Africa’s $1.2 Trillion AI Opportunity</h2>
+        <p>
+          The economic promise of AI is not self-executing. Real value will depend
+          on deliberate choices about infrastructure, skills, competition,
+          public institutions and the distribution of gains.
+        </p>
+        <div class="button-row">
+          <a class="button button-gold" href="/research/state-of-ai-in-africa">Read the analysis →</a>
+          <a class="text-link light-link" href="/research">View all research</a>
+        </div>
+      </div>
+      <div class="flagship-figure" aria-hidden="true">
+        <span>Potential economic value</span>
+        <strong>$1.2T</strong>
+        <i>2030</i>
+        <div class="figure-lines"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell">
+    <div class="section-heading reveal">
+      <div>
+        <p class="eyebrow">How we work</p>
+        <h2>From difficult questions to usable policy</h2>
+      </div>
+      <p class="section-intro">
+        Our work combines the independence of a research institute with the
+        practical orientation of a policy partner.
+      </p>
+    </div>
+    <div class="method-grid">
+      {methods.map((method) => (
+        <article class="method-card reveal">
+          <span>{method.number}</span>
+          <h3>{method.title}</h3>
+          <p>{method.copy}</p>
+        </article>
+      ))}
+    </div>
+    <div class="method-link reveal">
+      <a class="button button-outline" href="/programs">See how we support institutions →</a>
+    </div>
+  </section>
+
+  <section class="observatory-teaser">
+    <div class="shell observatory-grid reveal">
+      <div>
+        <p class="eyebrow light">In development</p>
+        <h2>Africa AI Policy Observatory</h2>
+        <p>
+          A public evidence platform tracking national strategies, legislation,
+          institutions and implementation across the continent.
+        </p>
+        <a class="button button-light" href="/observatory">Explore the vision →</a>
+      </div>
+      <div class="observatory-dashboard" aria-label="Illustrative policy observatory interface">
+        <div class="dashboard-top"><span>Continental policy signals</span><b>54 jurisdictions</b></div>
+        <div class="signal-row"><i></i><span>National AI strategies</span><strong>Tracking</strong></div>
+        <div class="signal-row"><i></i><span>Data and digital laws</span><strong>Mapping</strong></div>
+        <div class="signal-row"><i></i><span>Public institutions</span><strong>Comparing</strong></div>
+        <div class="signal-row"><i></i><span>Implementation evidence</span><strong>Evaluating</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell">
+    <div class="section-heading reveal">
+      <div>
+        <p class="eyebrow">Selected analysis</p>
+        <h2>Evidence for decisions that cannot wait</h2>
+      </div>
+      <a class="text-link" href="/insights">Browse all insights <span>→</span></a>
+    </div>
+    <PublicationGrid />
+  </section>
+
+  <section class="institutional-signals">
+    <div class="shell signals-grid">
+      {institutionalSignals.map((signal) => (
+        <div class="signal reveal">
+          <strong>{signal.value}</strong>
+          <span>{signal.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <ContactCTA />
 </BaseLayout>

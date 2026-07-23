@@ -1,4 +1,38 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'; import PageHero from '@/components/PageHero.astro'; import PublicationGrid from '@/components/PublicationGrid.astro'; import ContactCTA from '@/components/ContactCTA.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import PublicationGrid from '@/components/PublicationGrid.astro';
+import ContactCTA from '@/components/ContactCTA.astro';
+import { themes } from '@/data/site';
 ---
-<BaseLayout title="Research" description="Explore AIAIP research on AI governance, inclusive innovation, economic opportunity and human impact."><PageHero eyebrow="Research" title="Evidence where Africa’s AI future is being decided." intro="Independent analysis that helps policymakers, institutions and communities act with confidence."/><section class="section shell"><div class="filter-row" aria-label="Research topics"><span>All research</span><span>Governance</span><span>Economy</span><span>Infrastructure</span><span>Rights &amp; society</span></div><PublicationGrid /></section><ContactCTA /></BaseLayout>
+<BaseLayout title="Research" description="AIAIP research on AI governance, infrastructure, political economy, rights and safety in African contexts.">
+  <PageHero
+    eyebrow="Research"
+    title="Research for decisions under uncertainty."
+    intro="We combine legal analysis, political economy, social research and technical understanding to clarify the choices facing African institutions."
+  />
+  <section class="section shell">
+    <div class="research-area-grid">
+      {themes.map((theme) => (
+        <article class:list={['research-area-card', theme.className, 'reveal']}>
+          <span>{theme.number}</span><h3>{theme.title}</h3><p>{theme.summary}</p>
+          <ul>{theme.questions.map((question) => <li>{question}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="research-standard">
+    <div class="shell editorial-grid">
+      <h2 class="reveal">Our research standard</h2>
+      <div class="reveal">
+        <p class="large-copy">Clarity about evidence is as important as confidence in a conclusion.</p>
+        <p>We distinguish observed facts from assumptions, describe methodological limits and make uncertainty visible. Wherever possible, our work identifies concrete decision points rather than presenting a single universal model.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section shell">
+    <div class="section-heading reveal"><div><p class="eyebrow">Selected work</p><h2>Current analysis</h2></div></div>
+    <PublicationGrid />
+  </section>
+  <ContactCTA />
+</BaseLayout>

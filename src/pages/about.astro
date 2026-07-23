@@ -1,4 +1,74 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'; import PageHero from '@/components/PageHero.astro'; import ContactCTA from '@/components/ContactCTA.astro'; import { stats } from '@/data/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import ContactCTA from '@/components/ContactCTA.astro';
+import { institutionalSignals, methods } from '@/data/site';
 ---
-<BaseLayout title="About" description="Learn about AIAIP's mission, independence and approach to African-led AI policy research."><PageHero eyebrow="About AIAIP" title="African evidence for decisions that shape our shared future." intro="We exist to ensure African perspectives, priorities and expertise influence how artificial intelligence is governed globally."/><section class="content-section section shell"><div class="editorial-grid"><h2>Research with purpose</h2><div><p class="large-copy">AIAIP is an independent research institution dedicated to advancing responsible and inclusive AI governance across Africa.</p><p>We connect rigorous research, economic analysis, policy design and stakeholder engagement. Our work is built for decision-makers—and grounded in the lives, institutions and ambitions of people across the continent.</p></div></div><div class="value-grid"><article><span>01</span><h3>African-led</h3><p>African knowledge and priorities are central, not supplementary.</p></article><article><span>02</span><h3>Independent</h3><p>Our analysis serves the public interest and follows the evidence.</p></article><article><span>03</span><h3>Actionable</h3><p>We translate research into practical pathways for institutions.</p></article></div></section><section class="about section"><div class="shell stats">{stats.map((stat) => <div class="stat"><strong>{stat.value}</strong><span>{stat.label}</span></div>)}</div></section><ContactCTA /></BaseLayout>
+<BaseLayout
+  title="About"
+  description="AIAIP is an independent African research and policy institute working to ensure AI serves the public interest."
+>
+  <PageHero
+    eyebrow="About AIAIP"
+    title="Independent research for African agency in the AI age."
+    intro="We investigate how artificial intelligence is reshaping power, opportunity and public institutions—and turn that knowledge into policy that can work in African contexts."
+  />
+
+  <section class="section shell">
+    <div class="editorial-grid">
+      <h2 class="reveal">Why we exist</h2>
+      <div class="reveal">
+        <p class="large-copy">
+          Decisions about AI are moving quickly. The evidence, institutions and
+          expertise needed to govern it are not developing evenly.
+        </p>
+        <p>
+          Much of the global AI debate still treats African countries as adopters
+          of rules designed elsewhere. AIAIP exists to change that. We produce
+          rigorous, context-aware research that helps African governments,
+          regional bodies and public-interest organizations define their own
+          priorities and shape global norms.
+        </p>
+        <p>
+          We are interested not only in what AI can do, but in who has the power
+          to decide, which institutions are accountable, how benefits are shared
+          and what forms of harm must be prevented.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles-section section">
+    <div class="shell">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow light">Our principles</p><h2>How we earn trust</h2></div>
+      </div>
+      <div class="principles-grid">
+        <article class="reveal"><span>01</span><h3>Public interest first</h3><p>Technology should serve people, communities and democratic institutions—not the reverse.</p></article>
+        <article class="reveal"><span>02</span><h3>Independence</h3><p>Our questions, methods and conclusions are governed by evidence rather than political or commercial convenience.</p></article>
+        <article class="reveal"><span>03</span><h3>Context matters</h3><p>Effective governance must reflect local institutions, histories, economies and lived realities.</p></article>
+        <article class="reveal"><span>04</span><h3>Specificity over slogans</h3><p>We work through legal language, implementation constraints and trade-offs until recommendations become usable.</p></article>
+        <article class="reveal"><span>05</span><h3>Intellectual humility</h3><p>We state uncertainty clearly, test our assumptions and revise our positions when evidence changes.</p></article>
+        <article class="reveal"><span>06</span><h3>Reciprocity</h3><p>Research relationships should create value for the people and institutions whose knowledge makes the work possible.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell">
+    <div class="section-heading reveal">
+      <div><p class="eyebrow">Our model</p><h2>Knowledge that moves</h2></div>
+      <p class="section-intro">Research has impact when it moves between evidence, institutions and people.</p>
+    </div>
+    <div class="method-grid">
+      {methods.map((method) => <article class="method-card reveal"><span>{method.number}</span><h3>{method.title}</h3><p>{method.copy}</p></article>)}
+    </div>
+  </section>
+
+  <section class="institutional-signals">
+    <div class="shell signals-grid">
+      {institutionalSignals.map((signal) => <div class="signal reveal"><strong>{signal.value}</strong><span>{signal.label}</span></div>)}
+    </div>
+  </section>
+
+  <ContactCTA />
+</BaseLayout>

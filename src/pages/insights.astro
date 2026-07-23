@@ -1,4 +1,27 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'; import PageHero from '@/components/PageHero.astro'; import PublicationGrid from '@/components/PublicationGrid.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import PublicationGrid from '@/components/PublicationGrid.astro';
 ---
-<BaseLayout title="Insights" description="Read the latest research, policy briefs and analysis from AIAIP."><PageHero eyebrow="Insights" title="Research and ideas built for action." intro="Reports, briefs and commentary on the choices shaping Africa’s AI future."/><section class="section shell"><PublicationGrid /></section></BaseLayout>
+<BaseLayout title="Insights" description="Reports, policy briefs and commentary from the African Institute for Artificial Intelligence Policy.">
+  <PageHero
+    eyebrow="Insights"
+    title="Clear thinking for a fast-moving policy environment."
+    intro="Long-form research, concise policy briefs and timely analysis—written so decision-makers can understand the evidence, the trade-offs and the next move."
+  />
+  <section class="insight-types">
+    <div class="shell type-grid">
+      <div class="reveal"><span>Reports</span><p>Deep research on structural questions and institutional choices.</p></div>
+      <div class="reveal"><span>Policy briefs</span><p>Decision-ready synthesis for a defined policy window.</p></div>
+      <div class="reveal"><span>Commentary</span><p>Timely interpretation of significant developments.</p></div>
+      <div class="reveal"><span>Methods &amp; data</span><p>Transparent tools and evidence for further research.</p></div>
+    </div>
+  </section>
+  <section class="section shell"><PublicationGrid /></section>
+  <section class="newsletter-band">
+    <div class="shell newsletter-grid reveal">
+      <div><p class="eyebrow light">AIAIP briefing</p><h2>What matters in African AI policy—without the noise.</h2></div>
+      <form action="/thank-you" method="get"><label for="briefing-email">Email address</label><div><input id="briefing-email" type="email" name="email" placeholder="you@example.org" required/><button class="button button-gold" type="submit">Subscribe →</button></div><small>Occasional research and policy updates. No spam.</small></form>
+    </div>
+  </section>
+</BaseLayout>

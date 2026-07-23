@@ -1,27 +1,106 @@
 export const navigation = [
   { label: 'About', href: '/about' },
   { label: 'Research', href: '/research' },
-  { label: 'Programs', href: '/programs' },
+  { label: 'Policy & Advisory', href: '/programs' },
+  { label: 'Observatory', href: '/observatory' },
   { label: 'Insights', href: '/insights' },
-  { label: 'Get involved', href: '/get-involved' },
 ];
 
-export const stats = [
-  { value: '54', label: 'African countries covered' },
-  { value: '50+', label: 'Publications advancing AI policy' },
-  { value: '$1.2T', label: 'Economic opportunity identified' },
-  { value: '2.34M+', label: 'Publication readers' },
+export const institutionalSignals = [
+  { value: 'African-led', label: 'Research grounded in continental realities' },
+  { value: 'Independent', label: 'Analysis guided by evidence and public value' },
+  { value: 'Interdisciplinary', label: 'Law, economics, technology and social research' },
+  { value: 'Action-oriented', label: 'Work designed for decisions, not shelves' },
 ];
 
 export const themes = [
-  { title: 'Governance & Policy', summary: 'Accountable frameworks rooted in African priorities.', className: 'mint' },
-  { title: 'Inclusive Innovation', summary: 'Local ecosystems that solve real challenges.', className: 'sand' },
-  { title: 'Society & Human Impact', summary: 'Rights, work and sustainable development.', className: 'sage' },
+  {
+    number: '01',
+    title: 'Governance & Institutions',
+    summary: 'How laws, regulators and public institutions can govern increasingly capable AI systems.',
+    questions: ['Regulatory design', 'Public-sector AI', 'Regional coordination'],
+    className: 'mint',
+  },
+  {
+    number: '02',
+    title: 'Infrastructure & Sovereignty',
+    summary: 'How compute, data, connectivity and procurement choices shape African agency.',
+    questions: ['Compute policy', 'Data governance', 'Digital public infrastructure'],
+    className: 'sand',
+  },
+  {
+    number: '03',
+    title: 'Economy, Work & Innovation',
+    summary: 'How AI can expand productive capacity without deepening inequality or dependency.',
+    questions: ['Jobs and skills', 'Industrial policy', 'Inclusive innovation'],
+    className: 'sage',
+  },
+  {
+    number: '04',
+    title: 'Rights, Safety & Society',
+    summary: 'How AI affects dignity, democratic institutions, security and everyday life.',
+    questions: ['Fundamental rights', 'AI safety', 'Social accountability'],
+    className: 'blue',
+  },
 ];
 
 export const publications = [
-  { slug: 'ai-governance-in-africa', type: 'Policy report', date: '2025', title: 'AI Governance in Africa', subtitle: 'Principles for a people-centered approach', topic: 'Governance', readTime: '12 min read', cover: 'green' },
-  { slug: 'state-of-ai-in-africa', type: 'Economic analysis', date: '2025', title: 'The State of AI in Africa 2025', subtitle: 'Trends, opportunities and policy priorities', topic: 'Economy', readTime: '18 min read', cover: 'rust' },
-  { slug: 'data-for-development', type: 'Research brief', date: '2025', title: 'Data for Development', subtitle: 'Building public value through trusted data', topic: 'Infrastructure', readTime: '9 min read', cover: 'cream' },
-  { slug: 'ai-skills-for-the-future', type: 'Futures paper', date: '2025', title: 'AI Skills for the Future', subtitle: 'Preparing Africa’s youth for an AI economy', topic: 'Work & skills', readTime: '14 min read', cover: 'navy' },
+  {
+    slug: 'state-of-ai-in-africa',
+    type: 'Flagship analysis',
+    date: '2025',
+    title: 'Africa’s $1.2 Trillion AI Opportunity',
+    subtitle: 'A policy agenda for productive capacity, shared prosperity and African agency',
+    topic: 'Political economy',
+    readTime: '18 min read',
+    cover: 'green',
+  },
+  {
+    slug: 'ai-governance-in-africa',
+    type: 'Policy framework',
+    date: '2025',
+    title: 'Governing AI in African Contexts',
+    subtitle: 'From imported principles to institutions that can act',
+    topic: 'Governance',
+    readTime: '12 min read',
+    cover: 'rust',
+  },
+  {
+    slug: 'data-for-development',
+    type: 'Research brief',
+    date: '2025',
+    title: 'Public Data, Public Value',
+    subtitle: 'Building trusted data infrastructure for development',
+    topic: 'Infrastructure',
+    readTime: '9 min read',
+    cover: 'cream',
+  },
+  {
+    slug: 'ai-skills-for-the-future',
+    type: 'Futures paper',
+    date: '2025',
+    title: 'Work, Skills and the AI Transition',
+    subtitle: 'Preparing African institutions and workers for structural change',
+    topic: 'Economy & work',
+    readTime: '14 min read',
+    cover: 'navy',
+  },
+];
+
+export const methods = [
+  {
+    number: '01',
+    title: 'Research',
+    copy: 'We produce empirical, legal and economic analysis that makes complex AI policy choices legible.',
+  },
+  {
+    number: '02',
+    title: 'Policy translation',
+    copy: 'We turn evidence into options, frameworks and implementation tools for decision-makers.',
+  },
+  {
+    number: '03',
+    title: 'Field building',
+    copy: 'We connect researchers, public institutions and practitioners to strengthen Africa’s policy capacity.',
+  },
 ];

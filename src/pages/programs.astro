@@ -1,5 +1,57 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'; import PageHero from '@/components/PageHero.astro'; import ContactCTA from '@/components/ContactCTA.astro';
-const programs=[['Policy Research','Evidence-based analysis for government and institutional decisions.'],['Economic Analysis','Quantifying AI’s development, productivity and employment impact.'],['Capacity Building','Equipping the next generation of African AI policy professionals.'],['Advisory Services','Independent support for responsible and inclusive AI strategies.']];
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import ContactCTA from '@/components/ContactCTA.astro';
+
+const capabilities = [
+  {
+    number: '01',
+    title: 'Policy research',
+    copy: 'Independent legal, economic and institutional research on urgent and emerging AI governance questions.',
+    outputs: ['Policy reports and briefs', 'Regulatory and institutional analysis', 'Comparative research'],
+  },
+  {
+    number: '02',
+    title: 'Policy advisory',
+    copy: 'Confidential, evidence-led support for public institutions developing AI strategies, laws and implementation plans.',
+    outputs: ['Decision memos', 'Strategy and regulatory options', 'Implementation roadmaps'],
+  },
+  {
+    number: '03',
+    title: 'Capacity development',
+    copy: 'Learning programs that help officials and policy professionals reason clearly about technical change and governance choices.',
+    outputs: ['Executive education', 'Policy simulations', 'Practitioner fellowships'],
+  },
+  {
+    number: '04',
+    title: 'Convening and dialogue',
+    copy: 'Trusted spaces where government, research, civil society and industry can work through contested questions.',
+    outputs: ['Expert roundtables', 'Regional policy dialogues', 'Research networks'],
+  },
+];
 ---
-<BaseLayout title="Programs" description="Discover AIAIP's policy research, economic analysis, capacity building and advisory programs."><PageHero eyebrow="What we do" title="From evidence to institutional action." intro="Four connected programs help leaders understand change, design better policy and build durable capacity."/><section class="section shell"><div class="program-grid">{programs.map(([title,copy],i)=><article><span>0{i+1}</span><h2>{title}</h2><p>{copy}</p><a href="/contact">Discuss a collaboration →</a></article>)}</div></section><ContactCTA /></BaseLayout>
+<BaseLayout title="Policy & Advisory" description="Research, policy advisory and institutional capacity for responsible AI governance in Africa.">
+  <PageHero
+    eyebrow="Policy & advisory"
+    title="Evidence is useful when institutions can act on it."
+    intro="We help public-interest decision-makers move from broad AI principles to concrete choices about law, institutions, infrastructure and implementation."
+  />
+  <section class="section shell">
+    <div class="capability-grid">
+      {capabilities.map((item) => (
+        <article class="capability reveal">
+          <span>{item.number}</span>
+          <div><h2>{item.title}</h2><p>{item.copy}</p></div>
+          <ul>{item.outputs.map((output) => <li>{output}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="advisory-note">
+    <div class="shell advisory-grid reveal">
+      <p class="eyebrow light">Our boundary</p>
+      <p>Advisory work never purchases a preferred conclusion. We protect the independence of our analysis, disclose material conflicts and will decline work that compromises our public-interest mission.</p>
+    </div>
+  </section>
+  <ContactCTA />
+</BaseLayout>
