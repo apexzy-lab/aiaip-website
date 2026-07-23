@@ -3,10 +3,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHero from '@/components/PageHero.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
 import { institutionalSignals, methods } from '@/data/site';
+import { pageSeo } from '@/data/seo';
 ---
 <BaseLayout
   title="About"
-  description="AIAIP is an independent African research and policy institute working to ensure AI serves the public interest."
+  {...pageSeo.about}
 >
   <PageHero
     eyebrow="About AIAIP"

@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHero from '@/components/PageHero.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
+import { pageSeo } from '@/data/seo';
 
 const capabilities = [
   {
@@ -30,7 +31,7 @@ const capabilities = [
   },
 ];
 ---
-<BaseLayout title="Policy & Advisory" description="Research, policy advisory and institutional capacity for responsible AI governance in Africa.">
+<BaseLayout title="Policy & Advisory" {...pageSeo.programs}>
   <PageHero
     eyebrow="Policy & advisory"
     title="Evidence is useful when institutions can act on it."

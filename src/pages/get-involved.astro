@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHero from '@/components/PageHero.astro';
+import { pageSeo } from '@/data/seo';
 ---
-<BaseLayout title="Work with us" description="Partner with AIAIP on independent research, policy advisory and field building.">
+<BaseLayout title="Work with us" {...pageSeo.getInvolved}>
   <PageHero
     eyebrow="Work with us"
     title="Build the institutions Africa needs for the AI age."

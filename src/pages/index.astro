@@ -4,10 +4,11 @@ import AfricaMap from '@/components/AfricaMap.astro';
 import PublicationGrid from '@/components/PublicationGrid.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
 import { institutionalSignals, methods, themes } from '@/data/site';
+import { pageSeo } from '@/data/seo';
 ---
 <BaseLayout
   title="Home"
-  description="Independent African research, legal analysis and policy tools for accountable and inclusive AI."
+  {...pageSeo.home}
 >
   <section class="hero hero-v2">
     <div class="hero-copy reveal">
