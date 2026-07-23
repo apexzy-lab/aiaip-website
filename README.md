@@ -28,6 +28,14 @@ Connect this repository to Cloudflare Pages using:
 
 The project is fully static. No Cloudflare adapter is required unless server-rendered routes are added later.
 
+For Cloudflare's unified Workers Builds interface, use:
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+
+`wrangler.jsonc` deploys the generated `dist` directory as Cloudflare static assets.
+
 ## Content model and future CMS
 
 Shared navigation, metrics, research themes and publication metadata are in `src/data/site.ts`. Page components consume that structured data rather than duplicating content.

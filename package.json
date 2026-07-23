@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "wrangler": "latest"
   }
 }
