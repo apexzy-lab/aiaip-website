@@ -2,7 +2,7 @@ export interface PageSeo {
   seoTitle: string;
   description: string;
   keywords: string[];
-  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'Article';
   additionalSchemas?: Record<string, unknown>[];
 }
 
@@ -57,6 +57,43 @@ export const pageSeo: Record<string, PageSeo> = {
         ],
       },
     ],
+  },
+  research: {
+    seoTitle: 'African AI Policy Research & Analysis | AIAIP',
+    description: 'Explore independent AIAIP research on AI governance, infrastructure, political economy, rights, safety, work and innovation across African contexts.',
+    keywords: [
+      'African AI policy research',
+      'AI governance research Africa',
+      'African artificial intelligence reports',
+      'AI regulation research Africa',
+      'AI infrastructure policy Africa',
+      'responsible AI Africa',
+    ],
+    pageType: 'CollectionPage',
+  },
+  observatory: {
+    seoTitle: 'Africa AI Policy Observatory | AIAIP',
+    description: 'Discover AIAIP’s developing evidence platform for African AI strategies, laws, institutions, implementation and public accountability.',
+    keywords: [
+      'Africa AI policy observatory',
+      'African AI policy tracker',
+      'national AI strategies Africa',
+      'AI regulation database Africa',
+      'African AI governance data',
+    ],
+    pageType: 'CollectionPage',
+  },
+  insights: {
+    seoTitle: 'African AI Policy Reports, Briefs & Insights | AIAIP',
+    description: 'Read AIAIP reports, policy briefs, commentary and research methods on the decisions shaping artificial intelligence governance across Africa.',
+    keywords: [
+      'African AI policy reports',
+      'AI governance policy briefs Africa',
+      'African AI commentary',
+      'technology policy insights Africa',
+      'AI research publications Africa',
+    ],
+    pageType: 'CollectionPage',
   },
   getInvolved: {
     seoTitle: 'Work With AIAIP | African AI Policy Partnerships',

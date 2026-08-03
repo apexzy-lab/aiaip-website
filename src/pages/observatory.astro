@@ -2,8 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHero from '@/components/PageHero.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
+import { pageSeo } from '@/data/seo';
 ---
-<BaseLayout title="Africa AI Policy Observatory" description="AIAIP's planned public evidence platform for AI policy and implementation across Africa.">
+<BaseLayout title="Africa AI Policy Observatory" {...pageSeo.observatory}>
   <PageHero
     eyebrow="In development"
     title="Africa AI Policy Observatory"

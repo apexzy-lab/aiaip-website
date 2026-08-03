@@ -4,8 +4,9 @@ import PageHero from '@/components/PageHero.astro';
 import PublicationGrid from '@/components/PublicationGrid.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
 import { themes } from '@/data/site';
+import { pageSeo } from '@/data/seo';
 ---
-<BaseLayout title="Research" description="AIAIP research on AI governance, infrastructure, political economy, rights and safety in African contexts.">
+<BaseLayout title="Research" {...pageSeo.research}>
   <PageHero
     eyebrow="Research"
     title="Research for decisions under uncertainty."

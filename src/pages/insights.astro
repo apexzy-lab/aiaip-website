@@ -2,8 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PageHero from '@/components/PageHero.astro';
 import PublicationGrid from '@/components/PublicationGrid.astro';
+import { pageSeo } from '@/data/seo';
 ---
-<BaseLayout title="Insights" description="Reports, policy briefs and commentary from the African Institute for Artificial Intelligence Policy.">
+<BaseLayout title="Insights" {...pageSeo.insights}>
   <PageHero
     eyebrow="Insights"
     title="Clear thinking for a fast-moving policy environment."
