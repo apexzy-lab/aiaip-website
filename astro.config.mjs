@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-const nonIndexablePaths = ['/404/', '/thank-you/', '/privacy/', '/terms/'];
+const nonIndexablePaths = ['/404/', '/thank-you/', '/donation-thank-you/', '/privacy/', '/terms/'];
 
 function shouldIndex(page) {
   const { pathname } = new URL(page);

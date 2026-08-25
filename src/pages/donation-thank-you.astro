@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const paypalCampaignUrl = 'https://www.paypal.com/donate?campaign_id=UJB8B3KLKUNA6';
+---
+<BaseLayout
+  title="Thank you for supporting AIAIP"
+  description="Thank you for supporting AIAIP's participation at the GSU AI Risk Conference."
+  noindex
+>
+  <div class="donor-page">
+    <section class="donor-hero shell" aria-labelledby="donor-title">
+      <div class="donor-acknowledgement reveal">
+        <span class="donor-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7" /></svg>
+        </span>
+        <p class="eyebrow">Thank you for standing with us</p>
+        <h1 id="donor-title">Your support moves African AI policy forward.</h1>
+        <p class="donor-intro">
+          Thank you for supporting AIAIP’s participation at the GSU AI Risk Conference.
+        </p>
+        <p class="donor-receipt">
+          Your PayPal receipt is your official payment confirmation.
+        </p>
+        <div class="donor-actions">
+          <a class="button button-green" href="/research">Explore AIAIP’s work</a>
+          <button class="button donor-share-button" type="button" data-share-campaign>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"/></svg>
+            Share the campaign
+          </button>
+        </div>
+        <p class="share-status" role="status" aria-live="polite" data-share-status></p>
+      </div>
+    </section>
+
+    <section class="donor-impact shell" aria-labelledby="impact-title">
+      <div class="donor-story reveal">
+        <span class="donor-globe" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.2 2.5 3.4 5.5 3.4 9S14.2 18.5 12 21c-2.2-2.5-3.4-5.5-3.4-9S9.8 5.5 12 3Z"/></svg>
+        </span>
+        <p class="eyebrow">Why this matters</p>
+        <h2 id="impact-title">
+          Being in the room means African evidence, priorities and policy experience are represented in conversations about global AI risk.
+        </h2>
+        <p>
+          The campaign is raising <strong>US$15,000</strong> to support travel,
+          conference participation and AIAIP’s research representation.
+        </p>
+      </div>
+
+      <div class="donor-next reveal">
+        <p class="eyebrow">What happens next</p>
+        <ol>
+          <li><span>01</span><p>Check your inbox for your PayPal receipt.</p></li>
+          <li><span>02</span><p>Follow AIAIP for campaign and conference updates.</p></li>
+          <li><span>03</span><p>Share the campaign with someone who believes Africa should help shape AI governance.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="donor-campaign-band">
+      <div class="shell donor-campaign-inner reveal">
+        <div>
+          <p class="eyebrow light">The mission continues</p>
+          <h2>Help us reach the US$15,000 goal.</h2>
+          <p>Every contribution and share brings the mission closer.</p>
+        </div>
+        <div class="donor-band-actions">
+          <a
+            class="button button-gold"
+            href={paypalCampaignUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-paypal-campaign
+          >Support the campaign</a>
+          <button class="button button-light" type="button" data-share-campaign>Share with your network</button>
+        </div>
+        <p class="share-status donor-band-status" role="status" aria-live="polite" data-share-status></p>
+      </div>
+    </section>
+
+    <section class="donor-contact shell">
+      <p>Questions about the campaign?</p>
+      <a href="mailto:hello@africanaipolicy.org">hello@africanaipolicy.org</a>
+    </section>
+  </div>
+
+  <script is:inline define:vars={{ paypalCampaignUrl }}>
+    const shareButtons = document.querySelectorAll('[data-share-campaign]');
+    const shareStatuses = document.querySelectorAll('[data-share-status]');
+    const shareData = {
+      title: 'Support AIAIP at the GSU AI Risk Conference',
+      text: 'Help AIAIP bring African evidence and policy experience to conversations about global AI risk.',
+      url: paypalCampaignUrl,
+    };
+
+    const track = (eventName, method) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, method });
+    };
+
+    const updateShareStatus = (message) => {
+      shareStatuses.forEach((status) => { status.textContent = message; });
+    };
+
+    shareButtons.forEach((button) => button.addEventListener('click', async () => {
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          updateShareStatus('Thank you for sharing the campaign.');
+          track('fundraising_share', 'native');
+          return;
+        }
+
+        await navigator.clipboard.writeText(paypalCampaignUrl);
+        updateShareStatus('Campaign link copied to your clipboard.');
+        track('fundraising_share', 'clipboard');
+      } catch (error) {
+        if (error?.name !== 'AbortError') {
+          updateShareStatus('Please copy the campaign link from the Support button.');
+        }
+      }
+    }));
+
+    document.querySelector('[data-paypal-campaign]')?.addEventListener('click', () => {
+      track('fundraising_paypal_click', 'thank_you_page');
+    });
+  </script>
+</BaseLayout>
