@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
-import { publications } from '@/data/site';
+import { themes } from '@/data/site';
 
 export function getStaticPaths() {
-  return publications.map((item) => ({ params: { slug: item.slug }, props: { item } }));
+  return themes.map((item) => ({ params: { slug: item.slug }, props: { item } }));
 }
 
 const { item } = Astro.props;
@@ -13,41 +13,60 @@ const breadcrumbs = [
   { name: 'Research', href: '/research/' },
   { name: item.title, href: `/research/${item.slug}/` },
 ];
+const keywords = [item.pageTitle, ...item.questions.map((question) => `${question} Africa`), 'African AI policy research'];
 ---
 <BaseLayout
-  title={item.title}
-  description={item.subtitle}
-  pageType="Article"
+  title={item.pageTitle}
+  seoTitle={`${item.pageTitle} | AIAIP`}
+  description={item.seoDescription}
+  keywords={keywords}
   breadcrumbs={breadcrumbs}
-  noindex
 >
-  <article class="report-detail">
+  <article class="report-detail research-hub">
     <header class="report-hero">
       <div class="shell">
-        <p class="eyebrow">{item.type} · {item.date}</p>
-        <h1>{item.title}</h1>
-        <p>{item.subtitle}</p>
+        <p class="eyebrow">Research area · {item.number}</p>
+        <h1>{item.pageTitle}</h1>
+        <p>{item.intro}</p>
         <div class="report-meta">
-          <span>{item.topic}</span>
-          <span>{item.readTime}</span>
-          <span>AIAIP Research Team</span>
+          {item.questions.map((question) => <span>{question}</span>)}
         </div>
       </div>
     </header>
     <div class="article-body">
-      <p class="large-copy">Africa’s choices about artificial intelligence will shape economic opportunity, public institutions and the rights of more than a billion people.</p>
-      <h2>Executive summary</h2>
-      <p>This demonstration article shows the publication format that will be used for AIAIP research. Final reports will include verified findings, methodology, authors, citations and downloadable files.</p>
-      <h2>Key questions</h2>
-      <ul>
-        <li>What policies can unlock inclusive and sustainable growth?</li>
-        <li>How should public institutions govern data and automated systems?</li>
-        <li>How can African priorities influence global standards?</li>
+      <p class="eyebrow">Why this matters</p>
+      <p class="large-copy">{item.whyItMatters}</p>
+
+      <h2>Our research priorities</h2>
+      <div class="research-priority-list">
+        {item.priorities.map((priority, index) => (
+          <section>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <div><h3>{priority.title}</h3><p>{priority.copy}</p></div>
+          </section>
+        ))}
+      </div>
+
+      <h2>Questions for decision-makers</h2>
+      <p>Our work in this area is organized around choices that institutions can identify, test and revisit as evidence develops.</p>
+      <ul class="decision-list">
+        {item.decisions.map((decision) => <li>{decision}</li>)}
       </ul>
-      <aside>
-        <strong>Publication status</strong>
-        <p>Demonstration content—replace with the approved report before launch.</p>
+
+      <aside class="evidence-note">
+        <strong>Evidence before claims</strong>
+        <p>This page sets out AIAIP’s research agenda; it does not present completed study findings. Publications will identify authors, methods, sources, limitations and review dates when released.</p>
       </aside>
+
+      <h2>Continental reference points</h2>
+      <p>Our research starts from African policy priorities and tests how global principles can be translated into accountable institutions.</p>
+      <ul class="source-list">
+        <li><a href="https://au.int/en/documents/20240809/continental-artificial-intelligence-strategy" target="_blank" rel="noopener noreferrer">African Union Continental Artificial Intelligence Strategy <span>↗</span></a></li>
+        <li><a href="https://au.int/en/documents/20220728/au-data-policy-framework" target="_blank" rel="noopener noreferrer">African Union Data Policy Framework <span>↗</span></a></li>
+        <li><a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank" rel="noopener noreferrer">UNESCO Recommendation on the Ethics of Artificial Intelligence <span>↗</span></a></li>
+      </ul>
+
+      <p class="review-note">Research agenda reviewed September 2026.</p>
     </div>
   </article>
   <ContactCTA />

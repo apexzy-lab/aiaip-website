@@ -6,11 +6,6 @@ const nonIndexablePaths = ['/404/', '/thank-you/', '/donation-thank-you/', '/pri
 function shouldIndex(page) {
   const { pathname } = new URL(page);
   if (nonIndexablePaths.includes(pathname)) return false;
-
-  // Current report detail routes contain demonstration copy. Keep them out of
-  // search until each report is replaced with an approved publication.
-  if (pathname.startsWith('/research/') && pathname !== '/research/') return false;
-
   return true;
 }
 

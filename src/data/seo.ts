@@ -84,8 +84,8 @@ export const pageSeo: Record<string, PageSeo> = {
     pageType: 'CollectionPage',
   },
   insights: {
-    seoTitle: 'African AI Policy Reports, Briefs & Insights | AIAIP',
-    description: 'Read AIAIP reports, policy briefs, commentary and research methods on the decisions shaping artificial intelligence governance across Africa.',
+    seoTitle: 'African AI Policy Research Agenda & Insights | AIAIP',
+    description: 'Explore AIAIP’s research agenda on AI governance, infrastructure, work, innovation, rights and safety across African contexts.',
     keywords: [
       'African AI policy reports',
       'AI governance policy briefs Africa',

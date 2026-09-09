@@ -15,10 +15,11 @@ import { pageSeo } from '@/data/seo';
   <section class="section shell">
     <div class="research-area-grid">
       {themes.map((theme) => (
-        <article class:list={['research-area-card', theme.className, 'reveal']}>
+        <a class:list={['research-area-card', theme.className, 'reveal']} href={`/research/${theme.slug}`}>
           <span>{theme.number}</span><h3>{theme.title}</h3><p>{theme.summary}</p>
           <ul>{theme.questions.map((question) => <li>{question}</li>)}</ul>
-        </article>
+          <b>Explore this area →</b>
+        </a>
       ))}
     </div>
   </section>
@@ -32,7 +33,7 @@ import { pageSeo } from '@/data/seo';
     </div>
   </section>
   <section class="section shell">
-    <div class="section-heading reveal"><div><p class="eyebrow">Selected work</p><h2>Current analysis</h2></div></div>
+    <div class="section-heading reveal"><div><p class="eyebrow">Research agenda</p><h2>Explore each policy domain</h2></div></div>
     <PublicationGrid />
   </section>
   <ContactCTA />
