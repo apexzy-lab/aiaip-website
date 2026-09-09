@@ -34,12 +34,13 @@ const {
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = Astro.site ?? new URL('https://africanaipolicy.org');
-const pageTitle = seoTitle ?? (title === 'Home' ? 'African Institute for Artificial Intelligence Policy' : `${title} | AIAIP`);
+const siteName = 'African Institute for Artificial Intelligence Policy';
+const pageTitle = seoTitle ?? (title === 'Home' ? siteName : `${title} | AIAIP`);
 const socialImage = new URL(image, siteUrl);
 const organizationSchema = {
   '@type': 'ResearchOrganization',
   '@id': new URL('/#organization', siteUrl).href,
-  name: 'African Institute for Artificial Intelligence Policy',
+  name: siteName,
   alternateName: 'AIAIP',
   url: siteUrl.href,
   logo: new URL('/brand/aiaip-mark.png', siteUrl).href,
@@ -80,7 +81,7 @@ const organizationSchema = {
 const websiteSchema = {
   '@type': 'WebSite',
   '@id': new URL('/#website', siteUrl).href,
-  name: 'African Institute for Artificial Intelligence Policy',
+  name: siteName,
   alternateName: 'AIAIP',
   url: siteUrl.href,
   publisher: { '@id': new URL('/#organization', siteUrl).href },
@@ -135,6 +136,7 @@ const schemaGraph = {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="application-name" content={siteName} />
     {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
     <meta name="theme-color" content="#073e34" />
@@ -144,7 +146,7 @@ const schemaGraph = {
     <link rel="apple-touch-icon" href="/brand/aiaip-mark.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:type" content={pageType === 'Article' ? 'article' : 'website'} />
-    <meta property="og:site_name" content="AIAIP" />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content="en_NG" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
