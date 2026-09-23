@@ -71,15 +71,18 @@ const faqSchema = {
           <p class="campaign-share-status" role="status" aria-live="polite" data-campaign-share-status></p>
         </div>
 
-        <aside class="campaign-goal-card reveal" aria-label="Campaign summary">
-          <div class="campaign-goal-mark" aria-hidden="true"><span></span></div>
-          <p>Campaign target</p>
-          <strong>{goal}</strong>
-          <dl>
-            <div><dt>Mission</dt><dd>Conference presentation</dd></div>
-            <div><dt>Destination</dt><dd>GSU AI Risk Conference</dd></div>
-            <div><dt>Status</dt><dd>Fundraising now</dd></div>
-          </dl>
+        <aside class="campaign-paypal-card reveal" aria-label="Live PayPal campaign">
+          <p class="campaign-paypal-label">Live campaign progress</p>
+          <iframe
+            src="https://www.paypal.com/giving/campaigns?campaign_id=UJB8B3KLKUNA6"
+            title="PayPal donate campaign card"
+            width="382"
+            height="550"
+            loading="eager"
+          ></iframe>
+          <p class="campaign-paypal-fallback">
+            Card not loading? <a href={paypalCampaignUrl} target="_blank" rel="noopener noreferrer">Open the campaign on PayPal →</a>
+          </p>
         </aside>
       </div>
     </section>

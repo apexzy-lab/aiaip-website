@@ -397,15 +397,11 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
 .campaign-share-link { padding: 12px 4px; border: 0; border-bottom: 1px solid rgba(255,255,255,.65); color: #fff; background: none; font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }
 .campaign-secure-note, .campaign-share-status { margin: 14px 0 0; color: rgba(255,255,255,.62); font-size: .76rem; }
 .campaign-share-status { min-height: 1.3em; color: var(--brand-yellow); }
-.campaign-goal-card { position: relative; padding: 38px; color: var(--brand-charcoal); border-radius: 18px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.18); }
-.campaign-goal-mark { display: flex; justify-content: flex-end; height: 50px; }
-.campaign-goal-mark span { width: 48px; height: 48px; border: 12px solid var(--brand-yellow); border-left-color: transparent; border-radius: 50%; }
-.campaign-goal-card > p { margin: 22px 0 5px; color: var(--rust); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.campaign-goal-card > strong { display: block; font-family: var(--serif); font-size: clamp(3.5rem, 5vw, 5.5rem); line-height: 1; font-weight: 400; }
-.campaign-goal-card dl { margin: 34px 0 0; }
-.campaign-goal-card dl div { display: grid; grid-template-columns: 90px 1fr; gap: 18px; padding: 15px 0; border-top: 1px solid var(--line); }
-.campaign-goal-card dt { color: #706a60; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
-.campaign-goal-card dd { margin: 0; font-size: .86rem; font-weight: 700; }
+.campaign-paypal-card { width: min(100%, 430px); justify-self: end; padding: 18px 18px 14px; color: var(--brand-charcoal); border-radius: 18px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.18); }
+.campaign-paypal-label { margin: 0 0 12px; color: var(--rust); font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+.campaign-paypal-card iframe { display: block; width: 100%; max-width: 382px; height: 550px; margin-inline: auto; border: 0; background: #fff; }
+.campaign-paypal-fallback { margin: 11px 0 0; color: #6a655c; font-size: .7rem; text-align: center; }
+.campaign-paypal-fallback a { color: var(--green); font-weight: 700; }
 .campaign-case h2 { margin-top: 18px; }
 .campaign-use-section { color: #fff; background: var(--brand-charcoal); }
 .light-copy { color: rgba(255,255,255,.68); }
@@ -461,7 +457,7 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
   .donor-campaign-inner { grid-template-columns: 1fr; }
   .donor-band-status { margin: -34px 0 0; text-align: left; }
   .campaign-hero-grid { grid-template-columns: 1fr; gap: 55px; }
-  .campaign-goal-card { max-width: 560px; }
+  .campaign-paypal-card { justify-self: start; }
   .campaign-use-grid { grid-template-columns: repeat(2, 1fr); }
   .campaign-standard-grid { gap: 55px; }
 }
@@ -555,7 +551,8 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
   .campaign-actions { align-items: stretch; flex-direction: column; }
   .campaign-actions .button { width: 100%; }
   .campaign-share-link { align-self: center; }
-  .campaign-goal-card { padding: 28px 24px; }
+  .campaign-paypal-card { width: 100%; justify-self: stretch; padding: 14px 8px 12px; border-radius: 12px; }
+  .campaign-paypal-card iframe { height: 550px; }
   .campaign-use-grid { grid-template-columns: 1fr; }
   .campaign-use-grid article { min-height: 270px; }
   .campaign-use-grid h3 { margin-top: 48px; }
