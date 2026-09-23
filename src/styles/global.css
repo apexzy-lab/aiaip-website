@@ -385,6 +385,57 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
 .donor-contact p { margin: 0; }
 .donor-contact a { color: var(--green); font-weight: 700; border-bottom: 1px solid currentColor; }
 
+/* GSU AI Risk Conference fundraising campaign */
+.campaign-page { overflow: hidden; background: #fbf9f3; }
+.campaign-hero { position: relative; padding: 86px 0 78px; color: #fff; background: var(--green); }
+.campaign-hero::before { content: ""; position: absolute; width: 520px; height: 520px; right: -210px; bottom: -320px; border: 92px solid var(--brand-yellow); border-radius: 50%; opacity: .95; }
+.campaign-hero-grid { position: relative; display: grid; grid-template-columns: 1.35fr .65fr; gap: 80px; align-items: center; }
+.campaign-hero-copy h1 { max-width: 900px; margin: 0; font-size: clamp(4rem, 7vw, 7.5rem); line-height: .94; }
+.campaign-lede { max-width: 760px; margin: 30px 0 0; color: rgba(255,255,255,.78); font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+.campaign-lede strong { color: var(--brand-yellow); }
+.campaign-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 34px; }
+.campaign-share-link { padding: 12px 4px; border: 0; border-bottom: 1px solid rgba(255,255,255,.65); color: #fff; background: none; font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }
+.campaign-secure-note, .campaign-share-status { margin: 14px 0 0; color: rgba(255,255,255,.62); font-size: .76rem; }
+.campaign-share-status { min-height: 1.3em; color: var(--brand-yellow); }
+.campaign-goal-card { position: relative; padding: 38px; color: var(--brand-charcoal); border-radius: 18px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.18); }
+.campaign-goal-mark { display: flex; justify-content: flex-end; height: 50px; }
+.campaign-goal-mark span { width: 48px; height: 48px; border: 12px solid var(--brand-yellow); border-left-color: transparent; border-radius: 50%; }
+.campaign-goal-card > p { margin: 22px 0 5px; color: var(--rust); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.campaign-goal-card > strong { display: block; font-family: var(--serif); font-size: clamp(3.5rem, 5vw, 5.5rem); line-height: 1; font-weight: 400; }
+.campaign-goal-card dl { margin: 34px 0 0; }
+.campaign-goal-card dl div { display: grid; grid-template-columns: 90px 1fr; gap: 18px; padding: 15px 0; border-top: 1px solid var(--line); }
+.campaign-goal-card dt { color: #706a60; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
+.campaign-goal-card dd { margin: 0; font-size: .86rem; font-weight: 700; }
+.campaign-case h2 { margin-top: 18px; }
+.campaign-use-section { color: #fff; background: var(--brand-charcoal); }
+.light-copy { color: rgba(255,255,255,.68); }
+.campaign-use-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,.18); border-left: 1px solid rgba(255,255,255,.18); }
+.campaign-use-grid article { min-height: 330px; padding: 34px; border-right: 1px solid rgba(255,255,255,.18); border-bottom: 1px solid rgba(255,255,255,.18); }
+.campaign-use-grid span { color: var(--brand-yellow); font-size: .7rem; font-weight: 700; letter-spacing: .12em; }
+.campaign-use-grid h3 { margin: 70px 0 18px; color: #fff; font-size: 2.4rem; }
+.campaign-use-grid p { color: rgba(255,255,255,.67); }
+.campaign-standard-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; align-items: start; }
+.campaign-standard h2 { margin: 18px 0 0; font-size: clamp(3rem, 5vw, 5.5rem); }
+.campaign-promise { padding: 42px; background: var(--ivory); border-top: 4px solid var(--rust); }
+.campaign-promise > p { margin-top: 0; font-size: 1.15rem; }
+.campaign-promise ul { margin: 28px 0 0; padding: 0; list-style: none; }
+.campaign-promise li { display: grid; grid-template-columns: 38px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); }
+.campaign-promise li span { color: var(--rust); font-size: .7rem; font-weight: 700; }
+.campaign-faq { border-top: 1px solid var(--line); }
+.campaign-faq-list { max-width: 900px; margin-left: auto; }
+.campaign-faq-list details { border-top: 1px solid var(--line); }
+.campaign-faq-list details:last-child { border-bottom: 1px solid var(--line); }
+.campaign-faq-list summary { position: relative; padding: 26px 45px 26px 0; font-family: var(--serif); font-size: 1.55rem; cursor: pointer; list-style: none; }
+.campaign-faq-list summary::after { content: "+"; position: absolute; right: 4px; color: var(--rust); font-family: var(--sans); }
+.campaign-faq-list details[open] summary::after { content: "−"; }
+.campaign-faq-list details p { max-width: 700px; margin: -5px 0 28px; color: #5a554d; }
+.campaign-final { padding: 82px 0; color: #fff; text-align: center; background: var(--green); }
+.campaign-final-inner { max-width: 940px; }
+.campaign-final h2 { margin: 8px 0 16px; font-size: clamp(3.5rem, 7vw, 7rem); }
+.campaign-final > div > p:not(.eyebrow):not(.campaign-share-status) { color: rgba(255,255,255,.72); }
+.campaign-final .campaign-actions { justify-content: center; }
+.campaign-share-status.light { color: var(--brand-yellow); }
+
 @media (max-width: 1100px) {
   :root { --shell: min(100% - 40px, 960px); }
   .utility-points span:nth-child(2) { display: none; }
@@ -409,6 +460,10 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
   .donor-impact { gap: 45px; }
   .donor-campaign-inner { grid-template-columns: 1fr; }
   .donor-band-status { margin: -34px 0 0; text-align: left; }
+  .campaign-hero-grid { grid-template-columns: 1fr; gap: 55px; }
+  .campaign-goal-card { max-width: 560px; }
+  .campaign-use-grid { grid-template-columns: repeat(2, 1fr); }
+  .campaign-standard-grid { gap: 55px; }
 }
 
 @media (max-width: 760px) {
@@ -494,6 +549,20 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
   .donor-campaign-inner { gap: 30px; padding-block: 48px; }
   .donor-band-status { margin-top: -20px; }
   .donor-contact { align-items: center; flex-direction: column; text-align: center; }
+  .campaign-hero { padding: 62px 0 55px; }
+  .campaign-hero::before { display: none; }
+  .campaign-hero-copy h1 { font-size: clamp(3.1rem, 14vw, 4.8rem); overflow-wrap: anywhere; }
+  .campaign-actions { align-items: stretch; flex-direction: column; }
+  .campaign-actions .button { width: 100%; }
+  .campaign-share-link { align-self: center; }
+  .campaign-goal-card { padding: 28px 24px; }
+  .campaign-use-grid { grid-template-columns: 1fr; }
+  .campaign-use-grid article { min-height: 270px; }
+  .campaign-use-grid h3 { margin-top: 48px; }
+  .campaign-standard-grid { grid-template-columns: 1fr; gap: 40px; }
+  .campaign-promise { padding: 32px 24px; }
+  .campaign-faq-list { margin-left: 0; }
+  .campaign-faq-list summary { font-size: 1.35rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 const paypalCampaignUrl = 'https://www.paypal.com/donate?campaign_id=UJB8B3KLKUNA6';
+const campaignUrl = 'https://africanaipolicy.org/campaign/gsu-ai-risk-conference/';
 ---
 <BaseLayout
   title="Thank you for supporting AIAIP"
@@ -43,7 +44,7 @@ const paypalCampaignUrl = 'https://www.paypal.com/donate?campaign_id=UJB8B3KLKUN
           Being in the room means African evidence, priorities and policy experience are represented in conversations about global AI risk.
         </h2>
         <p>
-          The campaign is raising <strong>US$15,000</strong> to support travel,
+          The campaign is raising <strong>US$16,360</strong> to support travel,
           conference participation and AIAIP’s research representation.
         </p>
       </div>
@@ -62,7 +63,7 @@ const paypalCampaignUrl = 'https://www.paypal.com/donate?campaign_id=UJB8B3KLKUN
       <div class="shell donor-campaign-inner reveal">
         <div>
           <p class="eyebrow light">The mission continues</p>
-          <h2>Help us reach the US$15,000 goal.</h2>
+          <h2>Help us reach the US$16,360 goal.</h2>
           <p>Every contribution and share brings the mission closer.</p>
         </div>
         <div class="donor-band-actions">
@@ -85,13 +86,13 @@ const paypalCampaignUrl = 'https://www.paypal.com/donate?campaign_id=UJB8B3KLKUN
     </section>
   </div>
 
-  <script is:inline define:vars={{ paypalCampaignUrl }}>
+  <script is:inline define:vars={{ paypalCampaignUrl, campaignUrl }}>
     const shareButtons = document.querySelectorAll('[data-share-campaign]');
     const shareStatuses = document.querySelectorAll('[data-share-status]');
     const shareData = {
       title: 'Support AIAIP at the GSU AI Risk Conference',
       text: 'Help AIAIP bring African evidence and policy experience to conversations about global AI risk.',
-      url: paypalCampaignUrl,
+      url: campaignUrl,
     };
 
     const track = (eventName, method) => {
@@ -112,8 +113,8 @@ const paypalCampaignUrl = 'https://www.paypal.com/donate?campaign_id=UJB8B3KLKUN
           return;
         }
 
-        await navigator.clipboard.writeText(paypalCampaignUrl);
-        updateShareStatus('Campaign link copied to your clipboard.');
+        await navigator.clipboard.writeText(campaignUrl);
+        updateShareStatus('Campaign page copied to your clipboard.');
         track('fundraising_share', 'clipboard');
       } catch (error) {
         if (error?.name !== 'AbortError') {

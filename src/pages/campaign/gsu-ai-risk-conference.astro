@@ -1,0 +1,194 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const paypalCampaignUrl = 'https://www.paypal.com/donate?campaign_id=UJB8B3KLKUNA6';
+const campaignUrl = 'https://africanaipolicy.org/campaign/gsu-ai-risk-conference/';
+const goal = 'US$16,360';
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Work with us', href: '/get-involved/' },
+  { name: 'GSU AI Risk Conference campaign', href: '/campaign/gsu-ai-risk-conference/' },
+];
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is this campaign supporting?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The campaign supports AIAIP’s invited participation and presentation at the GSU AI Risk Conference, including travel, participation, essential logistics and research communication.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the fundraising goal?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AIAIP is raising US$16,360 for the conference mission.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How are donations processed?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Donations are processed through PayPal. PayPal sends each donor an official payment receipt.',
+      },
+    },
+  ],
+};
+---
+<BaseLayout
+  title="Support AIAIP at the GSU AI Risk Conference"
+  seoTitle="Support AIAIP at the GSU AI Risk Conference"
+  description="Help AIAIP raise US$16,360 to bring African evidence and policy experience to the GSU AI Risk Conference. Donate securely through PayPal."
+  keywords={['GSU AI Risk Conference', 'support African AI policy research', 'AIAIP fundraiser', 'African AI governance conference']}
+  breadcrumbs={breadcrumbs}
+  additionalSchemas={[faqSchema]}
+>
+  <div class="campaign-page">
+    <section class="campaign-hero">
+      <div class="shell campaign-hero-grid">
+        <div class="campaign-hero-copy reveal">
+          <p class="eyebrow light">AIAIP conference campaign</p>
+          <h1>Help bring an African policy voice to the GSU AI Risk Conference.</h1>
+          <p class="campaign-lede">
+            AIAIP has been invited to participate and present at the conference.
+            We are raising <strong>{goal}</strong> to make that mission possible.
+          </p>
+          <div class="campaign-actions">
+            <a
+              class="button button-gold"
+              href={paypalCampaignUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-campaign-donate
+            >Donate securely with PayPal →</a>
+            <button class="campaign-share-link" type="button" data-campaign-share>Share this campaign</button>
+          </div>
+          <p class="campaign-secure-note">PayPal processes the donation and provides your official receipt.</p>
+          <p class="campaign-share-status" role="status" aria-live="polite" data-campaign-share-status></p>
+        </div>
+
+        <aside class="campaign-goal-card reveal" aria-label="Campaign summary">
+          <div class="campaign-goal-mark" aria-hidden="true"><span></span></div>
+          <p>Campaign target</p>
+          <strong>{goal}</strong>
+          <dl>
+            <div><dt>Mission</dt><dd>Conference presentation</dd></div>
+            <div><dt>Destination</dt><dd>GSU AI Risk Conference</dd></div>
+            <div><dt>Status</dt><dd>Fundraising now</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="campaign-case section shell">
+      <div class="editorial-grid">
+        <div class="reveal">
+          <p class="eyebrow">Why this matters</p>
+          <h2>Africa should be present where global AI risks are defined.</h2>
+        </div>
+        <div class="reveal">
+          <p class="large-copy">Participation is more than attendance. It is an opportunity to bring African evidence, institutional realities and policy priorities into an international discussion about AI risk.</p>
+          <p>AIAIP’s work asks how AI governance can protect the public interest while expanding African agency. Presenting at the conference helps connect that work with researchers and decision-makers shaping the field.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="campaign-use-section section">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow light">What your support enables</p><h2>One mission, four practical needs.</h2></div>
+          <p class="section-intro light-copy">The target supports the full cost of participating, presenting and carrying the work beyond the conference room.</p>
+        </div>
+        <div class="campaign-use-grid">
+          <article class="reveal"><span>01</span><h3>Travel</h3><p>International travel and the local transport required to complete the conference mission.</p></article>
+          <article class="reveal"><span>02</span><h3>Participation</h3><p>Conference access and the practical costs connected to presenting and engaging fully.</p></article>
+          <article class="reveal"><span>03</span><h3>Essential logistics</h3><p>Accommodation and necessary travel logistics for the duration of the mission.</p></article>
+          <article class="reveal"><span>04</span><h3>Research communication</h3><p>Preparing the presentation and sharing useful lessons with the AIAIP community afterwards.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="campaign-standard section shell">
+      <div class="campaign-standard-grid">
+        <div class="reveal">
+          <p class="eyebrow">A public-interest mission</p>
+          <h2>Your contribution helps put African experience in the room.</h2>
+        </div>
+        <div class="campaign-promise reveal">
+          <p>Supporters will be able to follow AIAIP’s campaign and conference updates through our public channels.</p>
+          <ul>
+            <li><span>01</span>Clear statement of the campaign purpose</li>
+            <li><span>02</span>Secure donation processing through PayPal</li>
+            <li><span>03</span>Conference and research updates from AIAIP</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="campaign-faq section shell">
+      <div class="section-heading reveal"><div><p class="eyebrow">Campaign questions</p><h2>Before you support</h2></div></div>
+      <div class="campaign-faq-list">
+        <details class="reveal" open><summary>What is this campaign supporting?</summary><p>AIAIP’s invited participation and presentation at the GSU AI Risk Conference, including travel, participation, essential logistics and research communication.</p></details>
+        <details class="reveal"><summary>What is the fundraising goal?</summary><p>The campaign target is {goal}.</p></details>
+        <details class="reveal"><summary>How are donations processed?</summary><p>Donations are processed securely through PayPal. PayPal sends your official payment receipt directly to you.</p></details>
+        <details class="reveal"><summary>Can I help without making a donation?</summary><p>Yes. Sharing this page with people and institutions that value African participation in AI governance is meaningful support.</p></details>
+      </div>
+    </section>
+
+    <section class="campaign-final">
+      <div class="shell campaign-final-inner reveal">
+        <p class="eyebrow light">Stand with AIAIP</p>
+        <h2>Help us reach {goal}.</h2>
+        <p>Every contribution and every share moves the mission forward.</p>
+        <div class="campaign-actions">
+          <a class="button button-gold" href={paypalCampaignUrl} target="_blank" rel="noopener noreferrer" data-campaign-donate>Support the campaign →</a>
+          <button class="button button-light" type="button" data-campaign-share>Share with your network</button>
+        </div>
+        <p class="campaign-share-status light" role="status" aria-live="polite" data-campaign-share-status></p>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline define:vars={{ campaignUrl }}>
+    const shareButtons = document.querySelectorAll('[data-campaign-share]');
+    const shareStatuses = document.querySelectorAll('[data-campaign-share-status]');
+    const shareData = {
+      title: 'Support AIAIP at the GSU AI Risk Conference',
+      text: 'Help AIAIP raise US$16,360 to bring African evidence and policy experience to the GSU AI Risk Conference.',
+      url: campaignUrl,
+    };
+
+    const track = (eventName, method) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, method });
+    };
+
+    const updateStatus = (message) => {
+      shareStatuses.forEach((status) => { status.textContent = message; });
+    };
+
+    shareButtons.forEach((button) => button.addEventListener('click', async () => {
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          updateStatus('Thank you for sharing the campaign.');
+          track('fundraising_share', 'native');
+          return;
+        }
+        await navigator.clipboard.writeText(campaignUrl);
+        updateStatus('Campaign page copied to your clipboard.');
+        track('fundraising_share', 'clipboard');
+      } catch (error) {
+        if (error?.name !== 'AbortError') updateStatus('Please copy this page’s address to share the campaign.');
+      }
+    }));
+
+    document.querySelectorAll('[data-campaign-donate]').forEach((link) => link.addEventListener('click', () => {
+      track('fundraising_paypal_click', 'campaign_page');
+    }));
+  </script>
+</BaseLayout>
