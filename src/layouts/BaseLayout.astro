@@ -35,13 +35,15 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = Astro.site ?? new URL('https://africanaipolicy.org');
 const siteName = 'African Institute for Artificial Intelligence Policy';
+const siteAlternateNames = ['AIAIP', 'African AI Policy Institute'];
 const pageTitle = seoTitle ?? (title === 'Home' ? siteName : `${title} | AIAIP`);
 const socialImage = new URL(image, siteUrl);
 const organizationSchema = {
   '@type': 'ResearchOrganization',
   '@id': new URL('/#organization', siteUrl).href,
   name: siteName,
-  alternateName: 'AIAIP',
+  legalName: siteName,
+  alternateName: siteAlternateNames,
   url: siteUrl.href,
   logo: new URL('/brand/aiaip-mark.png', siteUrl).href,
   description: 'Independent African research and policy for artificial intelligence governance in the public interest.',
@@ -82,7 +84,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   '@id': new URL('/#website', siteUrl).href,
   name: siteName,
-  alternateName: 'AIAIP',
+  alternateName: siteAlternateNames,
   url: siteUrl.href,
   publisher: { '@id': new URL('/#organization', siteUrl).href },
   inLanguage: 'en',
