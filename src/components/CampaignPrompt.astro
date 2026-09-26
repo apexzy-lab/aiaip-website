@@ -1,0 +1,126 @@
+---
+const campaignUrl = '/campaign/gsu-ai-risk-conference/';
+const paypalUrl = 'https://www.paypal.com/donate?campaign_id=UJB8B3KLKUNA6';
+---
+<aside
+  class="campaign-prompt"
+  data-campaign-prompt
+  aria-labelledby="campaign-prompt-title"
+  hidden
+>
+  <button class="campaign-prompt-close" type="button" aria-label="Dismiss campaign message" data-campaign-prompt-close>
+    <span aria-hidden="true">×</span>
+  </button>
+  <div class="campaign-prompt-mark" aria-hidden="true">
+    <span></span>
+  </div>
+  <div class="campaign-prompt-content">
+    <p class="campaign-prompt-kicker">Invited to present · GSU AI Risk Conference</p>
+    <h2 id="campaign-prompt-title">Africa’s voice belongs in the room.</h2>
+    <p class="campaign-prompt-copy">
+      Help AIAIP reach its <strong>US$16,360</strong> target and bring African policy experience into the global AI-risk conversation.
+    </p>
+    <div class="campaign-prompt-meta">
+      <span>Campaign target</span>
+      <strong>US$16,360</strong>
+    </div>
+    <div class="campaign-prompt-actions">
+      <a
+        class="campaign-prompt-donate"
+        href={paypalUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-campaign-prompt-paypal
+      >Donate via PayPal <span aria-hidden="true">→</span></a>
+      <a class="campaign-prompt-details" href={campaignUrl} data-campaign-prompt-details>Why this matters</a>
+    </div>
+    <p class="campaign-prompt-trust">Secure donation processing and receipts are provided by PayPal.</p>
+  </div>
+</aside>
+
+<script is:inline>
+  (() => {
+    const prompt = document.querySelector('[data-campaign-prompt]');
+    if (!(prompt instanceof HTMLElement)) return;
+
+    const dismissedUntilKey = 'aiaip_campaign_prompt_dismissed_until';
+    const supportedUntilKey = 'aiaip_campaign_prompt_supported_until';
+    const sessionSeenKey = 'aiaip_campaign_prompt_seen';
+    const day = 24 * 60 * 60 * 1000;
+    let hasShown = false;
+    let timer;
+
+    const readNumber = (storage, key) => {
+      try { return Number(storage.getItem(key) || 0); } catch { return 0; }
+    };
+
+    const writeValue = (storage, key, value) => {
+      try { storage.setItem(key, String(value)); } catch { /* Storage may be unavailable. */ }
+    };
+
+    const track = (eventName, trigger = 'interaction') => {
+      const parameters = {
+        campaign_name: 'gsu_ai_risk_conference',
+        placement: 'sitewide_campaign_prompt',
+        trigger,
+        page_path: window.location.pathname,
+      };
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, parameters);
+      } else {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: eventName, ...parameters });
+      }
+
+      if (typeof window.clarity === 'function') window.clarity('event', eventName);
+    };
+
+    const isSuppressed = () => {
+      const now = Date.now();
+      return readNumber(localStorage, dismissedUntilKey) > now
+        || readNumber(localStorage, supportedUntilKey) > now
+        || readNumber(sessionStorage, sessionSeenKey) === 1;
+    };
+
+    const showPrompt = (trigger) => {
+      if (hasShown || isSuppressed()) return;
+      hasShown = true;
+      writeValue(sessionStorage, sessionSeenKey, 1);
+      prompt.hidden = false;
+      window.requestAnimationFrame(() => prompt.classList.add('is-visible'));
+      track('campaign_prompt_view', trigger);
+      window.removeEventListener('scroll', handleScroll);
+      window.clearTimeout(timer);
+    };
+
+    const dismissPrompt = () => {
+      prompt.classList.remove('is-visible');
+      writeValue(localStorage, dismissedUntilKey, Date.now() + (7 * day));
+      track('campaign_prompt_dismiss');
+      window.setTimeout(() => { prompt.hidden = true; }, 280);
+    };
+
+    const handleScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable > 0 && window.scrollY / scrollable >= 0.28) showPrompt('scroll_depth');
+    };
+
+    if (isSuppressed()) return;
+
+    timer = window.setTimeout(() => showPrompt('engaged_time'), 14000);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    prompt.querySelector('[data-campaign-prompt-close]')?.addEventListener('click', dismissPrompt);
+    prompt.querySelector('[data-campaign-prompt-paypal]')?.addEventListener('click', () => {
+      writeValue(localStorage, supportedUntilKey, Date.now() + (30 * day));
+      track('campaign_prompt_paypal_click');
+    });
+    prompt.querySelector('[data-campaign-prompt-details]')?.addEventListener('click', () => {
+      track('campaign_prompt_detail_click');
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !prompt.hidden) dismissPrompt();
+    });
+  })();
+</script>

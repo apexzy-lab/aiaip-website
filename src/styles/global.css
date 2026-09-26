@@ -164,6 +164,88 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
 .modal-close { position: absolute; top: 14px; right: 18px; border: 0; background: none; font-size: 1.8rem; cursor: pointer; }
 .modal-actions { display: flex; gap: 12px; margin-top: 28px; }
 
+/* Campaign conversion prompt: intentionally non-modal to protect search UX. */
+.campaign-prompt {
+  position: fixed;
+  z-index: 140;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  width: min(470px, calc(100vw - 48px));
+  overflow: hidden;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.16);
+  border-top: 4px solid var(--brand-yellow);
+  border-radius: 16px;
+  background: #062f28;
+  box-shadow: 0 26px 70px rgba(2, 25, 21, .32);
+  opacity: 0;
+  transform: translateY(24px) scale(.98);
+  transition: opacity .28s ease, transform .28s ease;
+}
+.campaign-prompt[hidden] { display: none; }
+.campaign-prompt.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+.campaign-prompt::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -84px;
+  bottom: -116px;
+  width: 210px;
+  height: 210px;
+  border: 34px solid rgba(255,205,66,.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.campaign-prompt-mark {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  overflow: hidden;
+  background: var(--brand-yellow);
+}
+.campaign-prompt-mark::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  width: 62px;
+  height: 62px;
+  border: 18px solid var(--brand-charcoal);
+  border-radius: 50%;
+}
+.campaign-prompt-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0 43px 0 0;
+  background: var(--brand-charcoal);
+}
+.campaign-prompt-content { position: relative; z-index: 1; padding: 22px 46px 20px 22px; }
+.campaign-prompt-kicker {
+  margin: 0 0 8px;
+  color: #f0cb72;
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .105em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.campaign-prompt h2 { max-width: 310px; margin: 0; color: #fff; font-size: 2.15rem; line-height: 1.02; }
+.campaign-prompt-copy { margin: 12px 0 15px; color: rgba(255,255,255,.74); font-size: .82rem; line-height: 1.48; }
+.campaign-prompt-copy strong { color: #fff; }
+.campaign-prompt-meta { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
+.campaign-prompt-meta span { color: rgba(255,255,255,.64); font-size: .67rem; text-transform: uppercase; letter-spacing: .08em; }
+.campaign-prompt-meta strong { color: var(--brand-yellow); font-size: .84rem; }
+.campaign-prompt-actions { display: grid; grid-template-columns: 1.25fr .75fr; gap: 9px; align-items: center; margin-top: 15px; }
+.campaign-prompt-donate { display: inline-flex; min-height: 43px; align-items: center; justify-content: space-between; gap: 12px; padding: 0 14px; color: var(--green); background: var(--brand-yellow); font-size: .74rem; font-weight: 700; transition: background .2s, transform .2s; }
+.campaign-prompt-donate:hover { background: #ffda6d; transform: translateY(-1px); }
+.campaign-prompt-details { color: #fff; font-size: .7rem; font-weight: 600; text-align: center; text-decoration: underline; text-decoration-color: rgba(255,255,255,.4); text-underline-offset: 4px; }
+.campaign-prompt-trust { margin: 10px 0 0; color: rgba(255,255,255,.47); font-size: .61rem; }
+.campaign-prompt-close { position: absolute; z-index: 3; top: 10px; right: 10px; display: grid; width: 30px; height: 30px; padding: 0; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; background: rgba(255,255,255,.07); cursor: pointer; line-height: 1; }
+.campaign-prompt-close:hover { color: var(--green); background: var(--brand-yellow); border-color: var(--brand-yellow); }
+.campaign-prompt-close:focus-visible, .campaign-prompt a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -560,6 +642,25 @@ dialog h2 { margin: 0 0 20px; font-size: 3.2rem; }
   .campaign-promise { padding: 32px 24px; }
   .campaign-faq-list { margin-left: 0; }
   .campaign-faq-list summary { font-size: 1.35rem; }
+  .campaign-prompt {
+    right: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    grid-template-columns: 54px minmax(0, 1fr);
+    width: calc(100vw - 20px);
+    border-radius: 12px;
+  }
+  .campaign-prompt-mark::before { top: 18px; left: 12px; width: 42px; height: 42px; border-width: 12px; }
+  .campaign-prompt-mark::after { right: 27px; }
+  .campaign-prompt-content { padding: 15px 40px 14px 15px; }
+  .campaign-prompt-kicker { margin-bottom: 5px; font-size: .55rem; }
+  .campaign-prompt h2 { padding-right: 5px; font-size: 1.48rem; }
+  .campaign-prompt-copy, .campaign-prompt-trust { display: none; }
+  .campaign-prompt-meta { margin-top: 9px; padding: 7px 0; }
+  .campaign-prompt-meta span { font-size: .57rem; }
+  .campaign-prompt-actions { grid-template-columns: 1.1fr .9fr; margin-top: 10px; }
+  .campaign-prompt-donate { min-height: 38px; padding-inline: 11px; font-size: .66rem; }
+  .campaign-prompt-details { font-size: .64rem; }
+  .campaign-prompt-close { top: 8px; right: 8px; width: 27px; height: 27px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
