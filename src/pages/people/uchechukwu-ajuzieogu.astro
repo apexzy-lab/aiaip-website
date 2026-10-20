@@ -1,0 +1,332 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site ?? new URL('https://africanaipolicy.org');
+const canonicalUrl = new URL('/people/uchechukwu-ajuzieogu/', siteUrl).href;
+const personId = `${canonicalUrl}#person`;
+const profileImage = new URL('/people/uchechukwu-ajuzieogu.jpg', siteUrl).href;
+
+const researchAreas = [
+  {
+    number: '01',
+    question: 'Who captures the value?',
+    copy: 'AI markets, investment, compute economics and the concentration of infrastructure, ownership and returns.',
+  },
+  {
+    number: '02',
+    question: 'Who supplies the labour?',
+    copy: 'Data work, platform power, global supply chains and the conditions behind systems presented as automated.',
+  },
+  {
+    number: '03',
+    question: 'Who writes the rules?',
+    copy: 'Continental strategies, institutional capability, governance frameworks and meaningful digital sovereignty.',
+  },
+  {
+    number: '04',
+    question: 'Who gets to participate?',
+    copy: 'Education, vocational systems, access to opportunity and the capacity to shape technological adoption.',
+  },
+];
+
+const selectedResearch = [
+  {
+    year: '2026',
+    theme: 'AI labour & ownership',
+    title: 'From Extraction to Ownership: Platform Cooperatives as Infrastructure for Worker Sovereignty in African AI Labor Markets',
+    href: 'https://www.researchgate.net/publication/400798251_From_Extraction_to_Ownership_Platform_Cooperatives_as_Infrastructure_for_Worker_Sovereignty_in_African_AI_Labor_Markets',
+  },
+  {
+    year: '2025',
+    theme: 'Continental AI governance',
+    title: 'From Aspiration to Implementation: The African Union AI Continental Strategy and the Development-Governance Paradox',
+    href: 'https://www.researchgate.net/publication/396230260_From_Aspiration_to_Implementation_The_African_Union_AI_Continental_Strategy_and_the_Development-Governance_Paradox',
+  },
+  {
+    year: '2025',
+    theme: 'AI risk economics',
+    title: 'The Term Structure of AI Risk: Economic Frameworks for Pricing Long-Term AI Uncertainty',
+    href: 'https://www.researchgate.net/publication/392076391_The_Term_Structure_of_AI_Risk_Economic_Frameworks_for_Pricing_Long-Term_AI_Uncertainty',
+  },
+  {
+    year: '2025',
+    theme: 'AI supply chains',
+    title: 'Kenya’s Data Workers: The $2/Hour Labor Force Training Western AI',
+    href: 'https://www.researchgate.net/publication/392924584_Kenya%27s_Data_Workers_The_2Hour_Labor_Force_Training_Western_AI',
+  },
+];
+
+const books = [
+  { year: '2019', title: 'Artificial Intelligence: Its Role in Modern Computing and Education' },
+  { year: '2020', title: 'Igbo Business Moguls: The Secrets of Igbo Businessmen' },
+  { year: '2025', title: 'The Side Hustle Blueprint: A Gen Z Guide to Building Multiple Income Streams While Working Full-Time' },
+];
+
+const personSchema = {
+  '@type': 'Person',
+  '@id': personId,
+  name: 'Uchechukwu Chimaeze Ajuzieogu',
+  alternateName: ['Uchechukwu Ajuzieogu', 'Apex'],
+  givenName: 'Uchechukwu',
+  familyName: 'Ajuzieogu',
+  url: canonicalUrl,
+  image: {
+    '@type': 'ImageObject',
+    url: profileImage,
+    width: 1280,
+    height: 1600,
+    caption: 'Uchechukwu Ajuzieogu wearing traditional Igbo Isi Agu attire',
+  },
+  jobTitle: 'Founder & Executive Director',
+  description: 'Technology-policy researcher, author and institution builder leading AIAIP’s work on AI governance, political economy and African agency.',
+  worksFor: { '@id': new URL('/#organization', siteUrl).href },
+  affiliation: {
+    '@type': 'ResearchOrganization',
+    name: 'The Veridian Foundation',
+    url: 'https://veridianfoundation.org',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'University of Nigeria, Nsukka',
+    url: 'https://www.unn.edu.ng/',
+  },
+  knowsAbout: [
+    'Artificial intelligence policy',
+    'AI political economy',
+    'African technology governance',
+    'AI labour and supply chains',
+    'Digital sovereignty',
+    'Technology and education',
+  ],
+  sameAs: [
+    'https://ajuzieogu.com/',
+    'https://www.linkedin.com/in/uchechukwu-ajuzieogu',
+    'https://www.researchgate.net/profile/Uchechukwu-Ajuzieogu',
+    'https://github.com/uchechukwuajuzieogu',
+  ],
+  mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
+};
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'About AIAIP', href: '/about/' },
+  { name: 'Uchechukwu Ajuzieogu', href: '/people/uchechukwu-ajuzieogu/' },
+];
+---
+<BaseLayout
+  title="Uchechukwu Ajuzieogu"
+  seoTitle="Uchechukwu Ajuzieogu | Founder & Executive Director, AIAIP"
+  description="Official AIAIP profile of Uchechukwu Ajuzieogu, technology-policy researcher and Founder & Executive Director of the African Institute for Artificial Intelligence Policy."
+  keywords={['Uchechukwu Ajuzieogu', 'Uchechukwu Chimaeze Ajuzieogu', 'AIAIP founder', 'African AI policy researcher', 'AI governance Africa']}
+  pageType="ProfilePage"
+  profilePersonId={personId}
+  breadcrumbs={breadcrumbs}
+  additionalSchemas={[personSchema]}
+  image="/people/uchechukwu-ajuzieogu.jpg"
+  imageAlt="Uchechukwu Ajuzieogu, Founder and Executive Director of AIAIP"
+  imageWidth={1280}
+  imageHeight={1600}
+>
+  <article class="person-profile">
+    <header class="profile-hero">
+      <div class="shell profile-hero-grid">
+        <div class="profile-hero-copy">
+          <p class="eyebrow light">Official AIAIP profile · Leadership</p>
+          <h1>Uchechukwu<br />Ajuzieogu</h1>
+          <p class="profile-role">Founder &amp; Executive Director</p>
+          <p class="profile-intro">
+            Uchechukwu Chimaeze Ajuzieogu is a technology-policy researcher,
+            author and institution builder working across AI governance,
+            political economy, education and digital systems.
+          </p>
+          <div class="profile-actions">
+            <a class="button button-gold" href="#selected-research">Selected research <span>↓</span></a>
+            <a class="button button-light" href="/contact/">Institutional enquiries <span>→</span></a>
+          </div>
+        </div>
+
+        <figure class="profile-portrait">
+          <img
+            src="/people/uchechukwu-ajuzieogu.jpg"
+            width="1280"
+            height="1600"
+            alt="Uchechukwu Ajuzieogu wearing traditional Igbo Isi Agu attire"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <figcaption>
+            Uchechukwu Ajuzieogu · Portrait licensed
+            <a href="https://commons.wikimedia.org/wiki/File:Uchechukw_Ajuzieogu_(Trad)_HD.jpg" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0 ↗</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="shell profile-facts" aria-label="Profile summary">
+        <div><span>Institution</span><strong>AIAIP</strong></div>
+        <div><span>Focus</span><strong>AI governance &amp; political economy</strong></div>
+        <div><span>Education</span><strong>BSc, Computer Education · UNN</strong></div>
+        <div><span>Profile status</span><strong>Maintained by AIAIP</strong></div>
+      </div>
+    </header>
+
+    <nav class="profile-index" aria-label="On this profile">
+      <div class="shell">
+        <span>On this profile</span>
+        <a href="#biography">Biography</a>
+        <a href="#aiaip-mandate">AIAIP mandate</a>
+        <a href="#research-agenda">Research agenda</a>
+        <a href="#selected-research">Selected research</a>
+        <a href="#public-work">Public work</a>
+      </div>
+    </nav>
+
+    <section class="profile-section shell" id="biography">
+      <div class="profile-section-label">
+        <p class="eyebrow">01 · Biography</p>
+        <p class="profile-aside">Technology, institutions and public purpose.</p>
+      </div>
+      <div class="profile-prose">
+        <h2>A builder of evidence, institutions and practical systems.</h2>
+        <p class="large-copy">
+          Uchechukwu’s work sits where technology, economics, education and
+          public policy meet.
+        </p>
+        <p>
+          He began in computer education and hands-on programming before moving
+          into technology leadership, entrepreneurship, teaching, research and
+          institutional development. He earned a Bachelor of Science in Computer
+          Education from the University of Nigeria, Nsukka.
+        </p>
+        <p>
+          As Founder and Executive Director of AIAIP, he leads research and
+          public engagement on the institutions, infrastructure, labour and
+          market structures shaping artificial intelligence. His central concern
+          is African agency: whether African institutions have the evidence,
+          capability and bargaining power to govern systems that increasingly
+          shape economic opportunity and public life.
+        </p>
+        <p>
+          Uchechukwu is also Co-Founder and Executive Director of The Veridian
+          Foundation, AIAIP’s parent organization. His wider practice spans
+          research publishing and the creation of technology products around
+          consequential operational problems. That builder’s perspective informs
+          an approach to policy focused on implementation—not declarations alone.
+        </p>
+      </div>
+    </section>
+
+    <section class="profile-mandate" id="aiaip-mandate">
+      <div class="shell">
+        <div class="profile-heading">
+          <div><p class="eyebrow light">02 · Institutional mandate</p><h2>What he leads at AIAIP</h2></div>
+          <p>Turning difficult technology questions into evidence, policy choices and institutions capable of acting.</p>
+        </div>
+        <div class="profile-mandate-grid">
+          <article><span>01</span><h3>Research direction</h3><p>Defines an interdisciplinary agenda connecting AI governance, infrastructure, labour, markets, rights and institutional capacity.</p></article>
+          <article><span>02</span><h3>Policy translation</h3><p>Connects research findings to the decisions, mandates and implementation constraints facing public institutions.</p></article>
+          <article><span>03</span><h3>Institution building</h3><p>Develops the editorial, research and partnership systems required for durable, independent African policy capacity.</p></article>
+          <article><span>04</span><h3>Public engagement</h3><p>Represents evidence-led African perspectives in conversations about technology, power, economic development and public accountability.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-section shell" id="research-agenda">
+      <div class="profile-section-label">
+        <p class="eyebrow">03 · Research agenda</p>
+        <p class="profile-aside">Political economy viewed from Africa and the Global South.</p>
+      </div>
+      <div class="profile-prose">
+        <h2>Four questions beneath the AI story.</h2>
+        <div class="profile-research-grid">
+          {researchAreas.map((area) => (
+            <article>
+              <span>{area.number}</span>
+              <h3>{area.question}</h3>
+              <p>{area.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-publications" id="selected-research">
+      <div class="shell">
+        <div class="profile-heading dark-heading">
+          <div><p class="eyebrow">04 · Selected research</p><h2>Work in the public record</h2></div>
+          <p>A focused selection. Titles link to the external research record; inclusion does not imply AIAIP publication or peer review.</p>
+        </div>
+        <div class="profile-publication-list">
+          {selectedResearch.map((publication, index) => (
+            <a href={publication.href} target="_blank" rel="noopener noreferrer">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div><small>{publication.year} · {publication.theme}</small><h3>{publication.title}</h3></div>
+              <b aria-hidden="true">↗</b>
+            </a>
+          ))}
+        </div>
+        <a class="profile-record-link" href="https://www.researchgate.net/profile/Uchechukwu-Ajuzieogu" target="_blank" rel="noopener noreferrer">View the full external research record on ResearchGate ↗</a>
+      </div>
+    </section>
+
+    <section class="profile-section shell" id="public-work">
+      <div class="profile-section-label">
+        <p class="eyebrow">05 · Public work</p>
+        <p class="profile-aside">Writing, teaching and making complex questions legible.</p>
+      </div>
+      <div class="profile-prose">
+        <h2>Research that can travel beyond the paper.</h2>
+        <div class="profile-public-work-grid">
+          <article>
+            <p class="eyebrow">Speaking &amp; media</p>
+            <h3>Evidence for consequential conversations.</h3>
+            <p>His public commentary covers AI economics, technology governance, digital fraud, education and Africa’s negotiating position in the global technology economy.</p>
+            <p>In 2025, he discussed evidence and global perceptions of Nigeria across BusinessDay Television, News Central TV and Channels Television.</p>
+            <a href="https://ajuzieogu.com/media" target="_blank" rel="noopener noreferrer">View verified appearances ↗</a>
+          </article>
+          <article>
+            <p class="eyebrow">Published books</p>
+            <h3>Ideas given room to develop.</h3>
+            <ol class="profile-book-list">
+              {books.map((book) => <li><span>{book.year}</span><strong>{book.title}</strong></li>)}
+            </ol>
+            <a href="https://ajuzieogu.com/books" target="_blank" rel="noopener noreferrer">Explore the bookshelf ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-standard">
+      <div class="shell profile-standard-grid">
+        <div>
+          <p class="eyebrow light">Working principles</p>
+          <h2>Evidence before theatre. Context before copying.</h2>
+        </div>
+        <div class="profile-principles">
+          <p><span>01</span><strong>Usefulness before novelty</strong>Technology matters when it enlarges real human and institutional agency.</p>
+          <p><span>02</span><strong>Institutions before moments</strong>Durable change requires knowledge and systems that continue after attention moves on.</p>
+          <p><span>03</span><strong>Specificity before slogans</strong>Good policy work makes mandates, evidence, trade-offs and implementation constraints visible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-contact">
+      <div class="shell profile-contact-grid">
+        <div>
+          <p class="eyebrow">Institutional enquiries</p>
+          <h2>Bring AIAIP a question worth organizing around.</h2>
+        </div>
+        <div>
+          <p>For research partnerships, policy work, institutional briefings or AIAIP-related media enquiries, contact the Institute.</p>
+          <a class="button button-rust" href="/contact/">Contact AIAIP <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="profile-governance">
+      <div class="shell">
+        <div><span>Profile governance</span><strong>This official profile is maintained and administered by AIAIP.</strong></div>
+        <p>Last substantive review: 21 October 2026 · Corrections: <a href="mailto:hello@africanaipolicy.org">hello@africanaipolicy.org</a></p>
+      </div>
+    </aside>
+  </article>
+</BaseLayout>

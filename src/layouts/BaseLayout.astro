@@ -9,7 +9,8 @@ interface Props {
   description: string;
   seoTitle?: string;
   keywords?: string[];
-  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'Article';
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'Article' | 'ProfilePage';
+  profilePersonId?: string;
   additionalSchemas?: Record<string, unknown>[];
   breadcrumbs?: Array<{ name: string; href: string }>;
   image?: string;
@@ -32,6 +33,7 @@ const {
   imageWidth = 1730,
   imageHeight = 909,
   noindex = false,
+  profilePersonId,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const campaignPromptExcludedPaths = ['/campaign/', '/donation-thank-you/', '/thank-you/', '/privacy/', '/terms/', '/404.html'];
@@ -56,7 +58,8 @@ const organizationSchema = {
     '@type': 'Person',
     name: 'Uchechukwu Ajuzieogu',
     jobTitle: 'Founder & Executive Director',
-    url: 'https://ajuzieogu.com',
+    url: new URL('/people/uchechukwu-ajuzieogu/', siteUrl).href,
+    sameAs: ['https://ajuzieogu.com/', 'https://www.linkedin.com/in/uchechukwu-ajuzieogu'],
   },
   parentOrganization: {
     '@type': 'ResearchOrganization',
@@ -101,7 +104,8 @@ const webpageSchema = {
   url: canonical.href,
   image: socialImage.href,
   isPartOf: { '@id': new URL('/#website', siteUrl).href },
-  about: { '@id': new URL('/#organization', siteUrl).href },
+  about: profilePersonId ? { '@id': profilePersonId } : { '@id': new URL('/#organization', siteUrl).href },
+  ...(profilePersonId ? { mainEntity: { '@id': profilePersonId } } : {}),
   ...(pageType === 'Article' ? {
     author: { '@type': 'Organization', name: 'AIAIP Research Team', url: new URL('/about/', siteUrl).href },
     publisher: { '@id': new URL('/#organization', siteUrl).href },
@@ -150,7 +154,7 @@ const schemaGraph = {
     <link rel="icon" href="/brand/aiaip-mark.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/brand/aiaip-mark.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta property="og:type" content={pageType === 'Article' ? 'article' : 'website'} />
+    <meta property="og:type" content={pageType === 'Article' ? 'article' : pageType === 'ProfilePage' ? 'profile' : 'website'} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content="en_NG" />
     <meta property="og:title" content={pageTitle} />

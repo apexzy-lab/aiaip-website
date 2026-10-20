@@ -27,6 +27,7 @@ const legacyRedirects = new Map<string, string>([
   ['/research/data-for-development', '/research/ai-infrastructure-sovereignty/'],
   ['/research/ai-skills-for-the-future', '/research/ai-economy-work-innovation/'],
   ['/campaign', '/campaign/gsu-ai-risk-conference/'],
+  ['/uchechukwu-ajuzieogu', '/people/uchechukwu-ajuzieogu/'],
 ]);
 
 const retiredWordPressPaths = new Set([
@@ -54,6 +55,7 @@ const canonicalPagePaths = new Set([
   '/get-involved',
   '/insights',
   '/observatory',
+  '/people/uchechukwu-ajuzieogu',
   '/privacy',
   '/programs',
   '/research',

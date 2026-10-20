@@ -58,8 +58,15 @@ for (const file of htmlFiles) {
     try {
       const schema = JSON.parse(jsonLd);
       const graph = Array.isArray(schema['@graph']) ? schema['@graph'] : [];
-      if (!graph.some((node) => node['@type'] === 'WebPage' || ['AboutPage', 'ContactPage', 'CollectionPage', 'Article'].includes(node['@type']))) {
+      if (!graph.some((node) => node['@type'] === 'WebPage' || ['AboutPage', 'ContactPage', 'CollectionPage', 'Article', 'ProfilePage'].includes(node['@type']))) {
         errors.push(`${relative}: missing page entity in JSON-LD graph`);
+      }
+      if (relative === 'people/uchechukwu-ajuzieogu/index.html') {
+        const profilePage = graph.find((node) => node['@type'] === 'ProfilePage');
+        const person = graph.find((node) => node['@type'] === 'Person' && node.name === 'Uchechukwu Chimaeze Ajuzieogu');
+        if (!profilePage || !person || profilePage.mainEntity?.['@id'] !== person['@id']) {
+          errors.push(`${relative}: profile page and Person entity are not linked`);
+        }
       }
       if (relative === 'index.html') {
         const website = graph.find((node) => node['@type'] === 'WebSite');
